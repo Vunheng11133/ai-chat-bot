@@ -14,35 +14,101 @@
     <script src="app.js" defer></script>
   </head>
   <body>
+    <button class="drawer-backdrop" id="drawer-backdrop" type="button" aria-label="បិទបញ្ជីសន្ទនា"></button>
+
+    <aside class="sidebar" id="sidebar" aria-label="បញ្ជីសន្ទនា" aria-hidden="true">
+      <div class="sidebar-head">
+        <div class="sidebar-brand">
+          <span class="brand-mark small" aria-hidden="true">AI</span>
+          <div>
+            <strong>AI Chat Bot</strong>
+            <span>Vunheng11133</span>
+          </div>
+        </div>
+        <button class="icon-button compact" id="close-sidebar" type="button" aria-label="បិទបញ្ជី">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>
+        </button>
+      </div>
+
+      <button class="new-chat-button" id="new-chat" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+        <span>សន្ទនាថ្មី</span>
+        <kbd>+</kbd>
+      </button>
+
+      <label class="chat-search">
+        <span class="sr-only">ស្វែងរកប្រវត្តិសន្ទនា</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg>
+        <input id="chat-search" type="search" placeholder="ស្វែងរកសន្ទនា..." autocomplete="off" />
+      </label>
+
+      <nav class="conversation-nav" aria-label="ប្រវត្តិសន្ទនា">
+        <section class="conversation-section" id="pinned-section">
+          <div class="section-title">
+            <span>បានខ្ទាស់</span>
+            <span id="pinned-count">0</span>
+          </div>
+          <div class="conversation-list" id="pinned-list"></div>
+        </section>
+
+        <section class="conversation-section">
+          <div class="section-title">
+            <span>ថ្មីៗ</span>
+            <span id="recent-count">0</span>
+          </div>
+          <div class="conversation-list" id="recent-list"></div>
+        </section>
+      </nav>
+
+      <button class="profile-card" id="open-account-sidebar" type="button">
+        <span class="profile-avatar" id="sidebar-profile-avatar">ភ</span>
+        <span class="profile-copy">
+          <strong id="sidebar-profile-name">ភ្ញៀវ</strong>
+          <small>ទិន្នន័យដាច់ដោយឡែកក្នុងឧបករណ៍នេះ</small>
+        </span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+      </button>
+    </aside>
+
     <main class="app-shell">
       <header class="topbar">
+        <button class="icon-button menu-button" id="open-sidebar" type="button" aria-label="បើកបញ្ជីសន្ទនា">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h10" /></svg>
+        </button>
+
         <div class="brand" aria-label="AI Chat Bot">
           <span class="brand-mark" aria-hidden="true">AI</span>
           <div>
             <h1>AI Chat Bot</h1>
-            <p><span class="status-dot"></span> ដំណើរការរួចរាល់</p>
+            <p><span class="status-dot"></span> <span id="status-text">ដំណើរការរួចរាល់</span></p>
           </div>
         </div>
-        <button class="icon-button" id="clear-chat" type="button" aria-label="លុបប្រវត្តិសន្ទនា" title="លុបប្រវត្តិសន្ទនា">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M4 7h16M9 7V4h6v3m-8 0 1 13h8l1-13M10 11v5m4-5v5" />
-          </svg>
-        </button>
+
+        <div class="topbar-actions">
+          <button class="account-button" id="open-account" type="button" aria-label="គណនី និងប្រវត្តិរបស់អ្នក">
+            <span class="profile-avatar" id="top-profile-avatar">ភ</span>
+          </button>
+          <button class="icon-button" id="clear-chat" type="button" aria-label="លុបសន្ទនានេះ" title="លុបសន្ទនានេះ">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h16M9 7V4h6v3m-8 0 1 13h8l1-13M10 11v5m4-5v5" />
+            </svg>
+          </button>
+        </div>
       </header>
 
       <section class="intro" aria-labelledby="intro-title">
-        <div class="eyebrow">LOCAL AI · NO API KEY</div>
+        <div class="eyebrow">LOCAL AI · PRIVATE BY DEVICE</div>
         <h2 id="intro-title">សួស្តី! តើខ្ញុំអាចជួយអ្វីបាន?</h2>
-        <p>ជជែកជាភាសាខ្មែរ ឬអង់គ្លេស។ ចម្លើយដំណើរការផ្ទាល់នៅក្នុង browser របស់អ្នក។</p>
+        <p>ជជែកជាភាសាខ្មែរ ឬអង់គ្លេស។ ជ្រើស Fast, Thinking ឬ Pro តាមប្រភេទសំណួរ។</p>
       </section>
 
       <section class="chat-panel" aria-label="ការសន្ទនា">
         <div class="messages" id="messages" role="log" aria-live="polite" aria-relevant="additions"></div>
 
         <div class="suggestions" id="suggestions" aria-label="សំណួរណែនាំ">
+          <button type="button" data-message="អ្នកជាអ្នកណា?">អ្នកជាអ្នកណា?</button>
           <button type="button" data-message="អ្នកអាចធ្វើអ្វីបាន?">អ្នកអាចធ្វើអ្វីបាន?</button>
-          <button type="button" data-message="អ្នកនិយាយខ្មែរបានទេ?">និយាយខ្មែរបានទេ?</button>
-          <button type="button" data-message="តើអ្នកប្រើ API ទេ?">ប្រើ API ទេ?</button>
+          <button type="button" data-message="គណនា sqrt(144) + 5^2">សាក Pro Math</button>
         </div>
 
         <form class="composer" id="chat-form">
@@ -51,10 +117,37 @@
             id="message-input"
             name="message"
             rows="1"
-            maxlength="600"
+            maxlength="1200"
             placeholder="សរសេរសាររបស់អ្នក..."
             autocomplete="off"
           ></textarea>
+
+          <div class="model-picker" id="model-picker">
+            <button class="model-trigger" id="model-trigger" type="button" aria-haspopup="menu" aria-expanded="false">
+              <span id="model-number">1</span>
+              <strong id="model-name">Fast</strong>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4" /></svg>
+            </button>
+            <div class="model-menu" id="model-menu" role="menu" hidden>
+              <button type="button" role="menuitemradio" data-mode="fast" aria-checked="true">
+                <span class="mode-number">1</span>
+                <span><strong>Fast</strong><small>ឆ្លើយរហ័ស សម្រាប់សំណួរទូទៅ</small></span>
+                <span class="mode-check">✓</span>
+              </button>
+              <button type="button" role="menuitemradio" data-mode="thinking" aria-checked="false">
+                <span class="mode-number">2</span>
+                <span><strong>Thinking</strong><small>ផ្គូផ្គងច្រើនជំហាន និងប្រុងប្រយ័ត្នជាង</small></span>
+                <span class="mode-check">✓</span>
+              </button>
+              <button type="button" role="menuitemradio" data-mode="pro" aria-checked="false">
+                <span class="mode-number">3</span>
+                <span><strong>Pro</strong><small>គណិតកម្រិតខ្ពស់ និងជំនួយកូដ</small></span>
+                <span class="mode-check">✓</span>
+              </button>
+              <p>ទាំងនេះជា local modes មិនមែនជា LLM ខាងក្រៅទេ។</p>
+            </div>
+          </div>
+
           <button class="send-button" id="send-button" type="submit" aria-label="ផ្ញើសារ">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="m4 4 16 8-16 8 3-8-3-8Zm3 8h13" />
@@ -62,6 +155,7 @@
           </button>
         </form>
 
+        <p class="hint" id="mode-hint">Fast · ចម្លើយរហ័សពីចំណេះដឹងក្នុងកូដ</p>
       </section>
 
       <footer>
@@ -70,6 +164,45 @@
         <span>ទិន្នន័យរក្សាទុកក្នុងឧបករណ៍នេះ</span>
       </footer>
     </main>
+
+    <div class="modal-backdrop" id="account-backdrop" hidden></div>
+    <section class="account-modal" id="account-modal" role="dialog" aria-modal="true" aria-labelledby="account-title" hidden>
+      <div class="modal-head">
+        <div>
+          <span class="modal-kicker">LOCAL PROFILES</span>
+          <h2 id="account-title">គណនី និងទិន្នន័យ</h2>
+        </div>
+        <button class="icon-button compact" id="close-account" type="button" aria-label="បិទ">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>
+        </button>
+      </div>
+
+      <p class="modal-description">Profile នីមួយៗមាន memory និងប្រវត្តិសន្ទនាដាច់ដោយឡែកនៅក្នុង browser នេះ។</p>
+      <div class="profile-list" id="profile-list"></div>
+
+      <form class="profile-form" id="profile-form">
+        <label for="profile-name">បង្កើត Local profile ថ្មី</label>
+        <div>
+          <input id="profile-name" name="profileName" maxlength="32" placeholder="ឈ្មោះរបស់អ្នក" autocomplete="name" required />
+          <button type="submit">បង្កើត</button>
+        </div>
+      </form>
+
+      <div class="auth-divider"><span>ឬចូលគណនី Cloud</span></div>
+      <div class="provider-buttons">
+        <button type="button" data-provider="Google">
+          <span class="provider-logo google" aria-hidden="true">G</span>
+          <span><strong>បន្តជាមួយ Google</strong><small>ត្រូវកំណត់ OAuth credentials</small></span>
+        </button>
+        <button type="button" data-provider="Apple">
+          <span class="provider-logo apple" aria-hidden="true">●</span>
+          <span><strong>បន្តជាមួយ Apple</strong><small>ត្រូវកំណត់ Apple Developer</small></span>
+        </button>
+      </div>
+      <p class="auth-note">Google/Apple មិនទាន់ចូលបានទេ រហូតដល់ម្ចាស់វេបសាយភ្ជាប់ OAuth និង database ដោយសុវត្ថិភាព។</p>
+    </section>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
     <template id="message-template">
       <article class="message">
