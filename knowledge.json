@@ -473,5 +473,225 @@
     "category": "website",
     "patterns": ["របៀបអាប់ដេតវេបសាយ", "how to update this website"],
     "responses": ["កែឯកសារនៅ branch ដែល Cloudflare ភ្ជាប់ ហើយ commit ទៅ GitHub។ Cloudflare នឹង deploy កំណែថ្មីស្វ័យប្រវត្តិ។"]
+  },
+  {
+    "category": "features",
+    "patterns": ["fast mode ជាអ្វី", "model fast ធ្វើអ្វី", "លេខ 1 fast"],
+    "responses": ["1 Fast ជ្រើសចម្លើយដែលផ្គូផ្គងលឿនបំផុតពីចំណេះដឹងក្នុងកូដ។ វាសមសម្រាប់ការសន្ទនា និងសំណួរទូទៅ។"]
+  },
+  {
+    "category": "features",
+    "patterns": ["thinking mode ជាអ្វី", "model thinking ធ្វើអ្វី", "លេខ 2 thinking"],
+    "responses": ["2 Thinking ពិនិត្យលទ្ធផលផ្គូផ្គងជាច្រើនមុនជ្រើសចម្លើយ។ វាប្រុងប្រយ័ត្នជាង Fast ប៉ុន្តែវានៅតែជា local retrieval mode មិនមែន LLM ដែលគិតដូចមនុស្សទេ។"]
+  },
+  {
+    "category": "features",
+    "patterns": ["pro mode ជាអ្វី", "model pro ធ្វើអ្វី", "លេខ 3 pro"],
+    "responses": ["3 Pro បើកគណិតកម្រិតបន្ថែមដូចជា sqrt, power (^), factorial (!), gcd, lcm និងចំណេះដឹងកូដ។"]
+  },
+  {
+    "category": "features",
+    "patterns": ["តើគួរជ្រើស model មួយណា", "fast thinking pro ខុសគ្នាមិច", "which mode should i use"],
+    "responses": ["ជ្រើស Fast សម្រាប់ចម្លើយរហ័ស, Thinking សម្រាប់សំណួរដែលចង់ឲ្យពិនិត្យការផ្គូផ្គងច្រើន, និង Pro សម្រាប់គណិតឬកូដ។"]
+  },
+  {
+    "category": "features",
+    "patterns": ["របៀបបង្កើតសន្ទនាថ្មី", "new chat នៅណា", "how to start a new chat"],
+    "responses": ["ចុចប៊ូតុងម៉ឺនុយខាងឆ្វេង រួចចុច «សន្ទនាថ្មី»។ ប្រវត្តិសន្ទនាចាស់នៅតែមានក្នុងផ្នែកថ្មីៗ។"]
+  },
+  {
+    "category": "features",
+    "patterns": ["recents ជាអ្វី", "ប្រវត្តិសន្ទនានៅណា", "where is chat history"],
+    "responses": ["Recents ឬ «ថ្មីៗ» ជាបញ្ជីសន្ទនាតាមពេលវេលា។ វារក្សាទុកក្នុង browser សម្រាប់ profile ដែលកំពុងប្រើ។"]
+  },
+  {
+    "category": "features",
+    "patterns": ["របៀប pin chat", "ខ្ទាស់សន្ទនាធ្វើមិច", "how to pin a chat"],
+    "responses": ["បើកម៉ឺនុយសន្ទនា ហើយចុចសញ្ញាខ្ទាស់នៅជាប់ឈ្មោះសន្ទនា។ សន្ទនានោះនឹងឡើងទៅផ្នែក «បានខ្ទាស់»។"]
+  },
+  {
+    "category": "features",
+    "patterns": ["local profile ជាអ្វី", "បង្កើត profile ធ្វើមិច", "what is a local profile"],
+    "responses": ["Local profile បែងចែក memory និងប្រវត្តិសន្ទនាក្នុង browser នេះ។ វាមិនមែនជាគណនីអនឡាញ និងគ្មាន password ទេ។"]
+  },
+  {
+    "category": "features",
+    "patterns": ["google login ប្រើបានទេ", "apple login ប្រើបានទេ", "can i sign in with google"],
+    "responses": ["Google និង Apple login ត្រូវការ OAuth credentials, callback URL និង database សុវត្ថិភាពពីម្ចាស់វេបសាយ។ កំណែនេះបង្ហាញជម្រើស ប៉ុន្តែមិនទាន់ភ្ជាប់ការចូលគណនីពិតទេ។"]
+  },
+  {
+    "category": "features",
+    "patterns": ["ទិន្នន័យខ្ញុំរក្សាទុកនៅណា", "where is my data stored", "ប្រវត្តិខ្ញុំបាត់ទេ"],
+    "responses": ["ប្រវត្តិ profile និង memory ត្រូវបានរក្សាទុកក្នុង localStorage របស់ browser នេះ។ បើលុប site data ប្តូរ browser ឬប្តូរឧបករណ៍ ទិន្នន័យមិនផ្ទេរតាមទេ។"]
+  },
+  {
+    "category": "conversation",
+    "patterns": ["បាទ", "ចាស", "យល់ហើយ", "ok understood"],
+    "responses": ["ល្អណាស់! បើមានចំណុចណាចង់សួរបន្ថែម សូមសួរបាន។", "បានហើយ។ ខ្ញុំត្រៀមជួយបន្ត។"]
+  },
+  {
+    "category": "conversation",
+    "patterns": ["អត់ទេ", "មិនមែនទេ", "no that's not it"],
+    "responses": ["បាន។ សូមប្រាប់ថាចំណុចណាមិនត្រូវ ឬសរសេរអ្វីដែលអ្នកចង់បានឲ្យច្បាស់បន្តិច។"]
+  },
+  {
+    "category": "conversation",
+    "patterns": ["ខ្ញុំមិនយល់", "មិនយល់ទេ", "i don't understand"],
+    "responses": ["មិនអីទេ។ សូមប្រាប់ពាក្យ ឬជំហានដែលមិនយល់ ខ្ញុំនឹងពន្យល់ជាភាសាសាមញ្ញ។"]
+  },
+  {
+    "category": "conversation",
+    "patterns": ["ពន្យល់សាមញ្ញ", "និយាយឲងាយយល់", "explain simply"],
+    "responses": ["បាន។ ខ្ញុំនឹងប្រើពាក្យខ្លីៗ បំបែកជាជំហាន និងបន្ថែមឧទាហរណ៍។ សូមផ្ញើប្រធានបទដែលចង់ឲ្យពន្យល់។"]
+  },
+  {
+    "category": "conversation",
+    "patterns": ["សូមឧទាហរណ៍", "ឲឧទាហរណ៍មួយ", "give me an example"],
+    "responses": ["បាន។ សូមបញ្ជាក់ប្រធានបទ ខ្ញុំនឹងបង្ហាញឧទាហរណ៍តូចមួយដែលអាចសាកល្បងបាន។"]
+  },
+  {
+    "category": "conversation",
+    "patterns": ["បន្តទៀត", "សូមបន្ត", "continue"],
+    "responses": ["បាន។ សូមបញ្ជាក់ចំណុចចុងក្រោយដែលអ្នកចង់ឲ្យខ្ញុំបន្ត ព្រោះខ្ញុំឆ្លើយតាមចំណេះដឹង និងសារនៅក្នុងសន្ទនានេះ។"]
+  },
+  {
+    "category": "conversation",
+    "patterns": ["សង្ខេបឲខ្ញុំ", "សូមសង្ខេប", "summarize it"],
+    "responses": ["បាន។ ផ្ញើអត្ថបទ ឬបញ្ជាក់ប្រធានបទ ហើយខ្ញុំនឹងសង្ខេបជាចំណុចខ្លីៗតាមសមត្ថភាពចំណេះដឹងដែលមាន។"]
+  },
+  {
+    "category": "conversation",
+    "patterns": ["ពន្យល់លម្អិត", "ចង់បានលម្អិត", "explain in detail"],
+    "responses": ["បាន។ សូមផ្ញើប្រធានបទ ហើយជ្រើស Thinking សម្រាប់ការផ្គូផ្គងប្រុងប្រយ័ត្ន ឬ Pro សម្រាប់គណិតនិងកូដ។"]
+  },
+  {
+    "category": "conversation",
+    "patterns": ["អ្នកឆ្លើយខុស", "ចម្លើយមិនត្រឹមត្រូវ", "that answer is wrong"],
+    "responses": ["សូមអភ័យទោស។ ខ្ញុំជា retrieval-based bot ដូច្នេះអាចផ្គូផ្គងខុសបាន។ សូមផ្តល់ចម្លើយត្រឹមត្រូវ ឬសរសេរសំណួរឲ្យច្បាស់ជាងមុន។"]
+  },
+  {
+    "category": "ai",
+    "patterns": ["retrieval ai ជាអ្វី", "retrieval based bot មានន័យអ្វី", "what is retrieval ai"],
+    "responses": ["Retrieval AI ស្វែងរកសំណួរគំរូដែលស្រដៀងបំផុតក្នុងឯកសារចំណេះដឹង ហើយយកចម្លើយដែលបានរៀបចំទុកមកឆ្លើយ។"]
+  },
+  {
+    "category": "ai",
+    "patterns": ["llm ជាអ្វី", "large language model ជាអ្វី", "what is an llm"],
+    "responses": ["LLM គឺម៉ូដែលភាសាធំដែលបានបណ្តុះលើទិន្នន័យច្រើន និងអាចបង្កើតអត្ថបទថ្មី។ Bot នេះមិនមែន LLM ទេ។"]
+  },
+  {
+    "category": "ai",
+    "patterns": ["dataset ជាអ្វី", "ទិន្នន័យបង្រៀន ai ជាអ្វី", "what is a dataset"],
+    "responses": ["Dataset គឺជាបណ្តុំទិន្នន័យដែលរៀបចំសម្រាប់សិក្សា សាកល្បង ឬស្វែងរក។ ក្នុងគម្រោងនេះ knowledge.json ជាបណ្តុំសំណួរ និងចម្លើយ។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["variable ជាអ្វី", "អថេរក្នុងកូដជាអ្វី", "what is a variable"],
+    "responses": ["Variable ជាឈ្មោះសម្រាប់រក្សាទុកតម្លៃក្នុងកម្មវិធី។ ឧទាហរណ៍ JavaScript៖ const name = 'Dara';"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["function ជាអ្វី", "មុខងារក្នុងកូដជាអ្វី", "what is a function"],
+    "responses": ["Function ជាក្រុមបញ្ជាដែលអាចហៅប្រើឡើងវិញ។ វាទទួល input ហើយអាចត្រឡប់ output។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["array ជាអ្វី", "បញ្ជីក្នុង javascript", "what is an array"],
+    "responses": ["Array ជាបញ្ជីតម្លៃតាមលំដាប់។ ឧទាហរណ៍៖ const colors = ['red', 'blue'];"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["object ជាអ្វី", "javascript object ជាអ្វី", "what is an object"],
+    "responses": ["Object រក្សាទុកទិន្នន័យជាគូ key និង value។ ឧទាហរណ៍៖ { name: 'Sokha', age: 20 }។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["if else ជាអ្វី", "condition ក្នុងកូដ", "what is if else"],
+    "responses": ["if/else ប្រើសម្រាប់សម្រេចថាកូដផ្នែកណាត្រូវដំណើរការ អាស្រ័យលើលក្ខខណ្ឌ true ឬ false។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["loop ជាអ្វី", "រង្វិលជុំកូដ", "what is a loop"],
+    "responses": ["Loop ធ្វើការងារដដែលៗច្រើនដង។ JavaScript មាន for, while និងវិធីដូចជា forEach។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["async await ជាអ្វី", "រង់ចាំ fetch ក្នុង javascript", "what is async await"],
+    "responses": ["async/await ជាវិធីសរសេរកូដ asynchronous ឲ្យងាយអាន។ await រង់ចាំ Promise នៅក្នុង async function។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["debug ជាអ្វី", "របៀបរក bug", "how to debug code"],
+    "responses": ["Debug គឺការរកមូលហេតុកំហុស។ អាន error, បង្រួមបញ្ហា, ពិនិត្យ input/output, ប្រើ console.log ហើយសាកម្ដងមួយចំណុច។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["html css javascript ខុសគ្នាមិច", "html css js ធ្វើអ្វី", "difference between html css javascript"],
+    "responses": ["HTML បង្កើតរចនាសម្ព័ន្ធ, CSS តុបតែងរូបរាង, JavaScript បន្ថែមអន្តរកម្ម និងតក្កវិជ្ជា។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["json ជាអ្វី", "knowledge json មានអ្វី", "what is json"],
+    "responses": ["JSON ជាទម្រង់អត្ថបទសម្រាប់ទិន្នន័យ។ វាប្រើ object, array, string, number, boolean និង null ហើយ key ត្រូវដាក់ក្នុងសញ្ញាសម្រង់ពីរ។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["api ជាអ្វី", "what is an api", "api ប្រើធ្វើអ្វី"],
+    "responses": ["API ជាច្រកឲ្យកម្មវិធីពីរទាក់ទងគ្នា។ Client ផ្ញើ request ហើយ server ត្រឡប់ response តាមកិច្ចព្រមព្រៀងដែលកំណត់។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["git commit ជាអ្វី", "commit មានន័យអ្វី", "what is a git commit"],
+    "responses": ["Git commit ជាកំណត់ត្រាការផ្លាស់ប្តូរកូដមួយកញ្ចប់ មានលេខសម្គាល់ និងសារពន្យល់។ វាអាចមើលបានក្នុងផ្នែក Commits របស់ GitHub។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["branch ជាអ្វី", "git branch មានន័យអ្វី", "what is a git branch"],
+    "responses": ["Branch ជាខ្សែការងារដាច់ពីគ្នាក្នុង Git។ អ្នកអាចអភិវឌ្ឍ feature នៅ branch មួយ ហើយបញ្ចូលទៅ main ពេលរួចរាល់។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["pull request ជាអ្វី", "pr github ជាអ្វី", "what is a pull request"],
+    "responses": ["Pull Request ជាសំណើសុំបញ្ចូលការផ្លាស់ប្តូរពី branch មួយទៅ branch មួយទៀត ដោយអាចពិនិត្យ diff និងពិភាក្សាមុន merge។"]
+  },
+  {
+    "category": "math",
+    "patterns": ["ឫសការ៉េជាអ្វី", "square root ជាអ្វី", "what is square root"],
+    "responses": ["ឫសការ៉េនៃ n គឺចំនួនដែលគុណនឹងខ្លួនឯងបាន n។ ឧទាហរណ៍ sqrt(144) = 12។ ជ្រើស Pro ដើម្បីគណនា។"]
+  },
+  {
+    "category": "math",
+    "patterns": ["ស្វ័យគុណជាអ្វី", "exponent ជាអ្វី", "what is exponent"],
+    "responses": ["a^b មានន័យថាយក a គុណនឹងខ្លួនឯង b ដង។ ឧទាហរណ៍ 2^5 = 32។"]
+  },
+  {
+    "category": "math",
+    "patterns": ["factorial ជាអ្វី", "សញ្ញា factorial", "what is factorial"],
+    "responses": ["n! គឺ n × (n−1) × ... × 1។ ឧទាហរណ៍ 5! = 120 ហើយ 0! = 1។"]
+  },
+  {
+    "category": "math",
+    "patterns": ["gcd ជាអ្វី", "តួចែករួមធំបំផុត", "what is gcd"],
+    "responses": ["GCD ជាតួចែករួមធំបំផុតរបស់ចំនួនគត់ពីរ។ ឧទាហរណ៍ gcd(18, 24) = 6។"]
+  },
+  {
+    "category": "math",
+    "patterns": ["lcm ជាអ្វី", "ពហុគុណរួមតូចបំផុត", "what is lcm"],
+    "responses": ["LCM ជាពហុគុណរួមវិជ្ជមានតូចបំផុត។ ឧទាហរណ៍ lcm(6, 8) = 24។"]
+  },
+  {
+    "category": "math",
+    "patterns": ["របៀបគណនាភាគរយ", "percentage គណនាមិច", "how to calculate percentage"],
+    "responses": ["x% នៃ y = (x ÷ 100) × y។ ក្នុង Pro អ្នកអាចសរសេរ 15% of 200 ហើយទទួលបាន 30។"]
+  },
+  {
+    "category": "math",
+    "patterns": ["លំដាប់ប្រមាណវិធី", "គុណចែកបូកដកមួយណាមុន", "order of operations"],
+    "responses": ["ប្រើវង់ក្រចកមុន បន្ទាប់មកស្វ័យគុណ បន្ទាប់មកគុណ/ចែក ហើយចុងក្រោយបូក/ដកពីឆ្វេងទៅស្តាំ។"]
+  },
+  {
+    "category": "math",
+    "patterns": ["មធ្យមភាគគណនាមិច", "average ជាអ្វី", "how to calculate average"],
+    "responses": ["មធ្យមភាគ = ផលបូកតម្លៃទាំងអស់ ÷ ចំនួនតម្លៃ។ ឧទាហរណ៍ (10 + 20 + 30) ÷ 3 = 20។"]
   }
 ]
