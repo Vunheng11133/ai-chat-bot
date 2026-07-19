@@ -31,15 +31,6 @@ const elements = {
   suggestions: document.querySelector("#suggestions"),
   clear: document.querySelector("#clear-chat"),
   template: document.querySelector("#message-template"),
-  openAdmin: document.querySelector("#open-admin"),
-  closeAdmin: document.querySelector("#close-admin"),
-  adminDialog: document.querySelector("#admin-dialog"),
-  adminForm: document.querySelector("#admin-form"),
-  adminPassword: document.querySelector("#admin-password"),
-  adminPatterns: document.querySelector("#admin-patterns"),
-  adminAnswer: document.querySelector("#admin-answer"),
-  adminStatus: document.querySelector("#admin-status"),
-  adminSave: document.querySelector("#admin-save"),
 };
 
 const state = {
@@ -67,31 +58,6 @@ function writeStorage(key, value) {
   } catch {
     // Chat remains usable when private browsing blocks storage.
   }
-}
-
-async function loadSharedKnowledge() {
-  try {
-    const response = await fetch("/api/knowledge", { headers: { Accept: "application/json" } });
-    if (!response.ok) return [];
-    const data = await response.json();
-    return Array.isArray(data.entries) ? data.entries : [];
-  } catch {
-    return [];
-  }
-}
-
-async function saveSharedKnowledge(password, patterns, answer) {
-  const response = await fetch("/api/knowledge", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${password}`,
-    },
-    body: JSON.stringify({ patterns, responses: [answer] }),
-  });
-  const data = await response.json().catch(() => ({}));
-  if (!response.ok) throw new Error(data.error || "មិនអាចរក្សាទុកបានទេ។");
-  return data.entry;
 }
 
 function normalize(text) {
@@ -186,12 +152,65 @@ function rememberOrRecallName(message) {
     }
   }
 
+  const khmerDigits = "០១២៣៤៥៦៧៨៩";
+  const toLatinDigits = (value) =>
+    String(value).replace(/[០-៩]/g, (digit) => String(khmerDigits.indexOf(digit)));
+  const ageMatch = message.match(/(?:ខ្ញុំអាយុ|អាយុខ្ញុំគឺ|i am)\s*([0-9០-៩]{1,3})(?:\s*(?:ឆ្នាំ|years? old))?/iu);
+  if (ageMatch) {
+    const age = Number(toLatinDigits(ageMatch[1]));
+    if (age > 0 && age < 130) {
+      state.memory.age = age;
+      writeStorage(STORAGE.memory, state.memory);
+      return `ខ្ញុំបានចងចាំថាអ្នកអាយុ ${age} ឆ្នាំ។`;
+    }
+  }
+
+  const locationMatch = message.match(/(?:ខ្ញុំរស់នៅ|ទីលំនៅខ្ញុំគឺ|i live in)\s+(.{2,70})/iu);
+  if (locationMatch) {
+    state.memory.location = locationMatch[1].trim().replace(/[.!?។]+$/u, "");
+    writeStorage(STORAGE.memory, state.memory);
+    return `ខ្ញុំបានចងចាំថាអ្នករស់នៅ ${state.memory.location}។`;
+  }
+
+  const dislikeMatch = message.match(/(?:ខ្ញុំមិនចូលចិត្ត|i do not like|i don't like)\s+(.{2,100})/iu);
+  if (dislikeMatch) {
+    state.memory.dislike = dislikeMatch[1].trim().replace(/[.!?។]+$/u, "");
+    writeStorage(STORAGE.memory, state.memory);
+    return `ខ្ញុំបានចងចាំថាអ្នកមិនចូលចិត្ត ${state.memory.dislike}។`;
+  }
+
+  const likeMatch = message.match(/(?:ខ្ញុំចូលចិត្ត|i like)\s+(.{2,100})/iu);
+  if (likeMatch) {
+    state.memory.like = likeMatch[1].trim().replace(/[.!?។]+$/u, "");
+    writeStorage(STORAGE.memory, state.memory);
+    return `ខ្ញុំបានចងចាំថាអ្នកចូលចិត្ត ${state.memory.like}។`;
+  }
+
   const clean = normalize(message);
   const recallQuestions = ["តើខ្ញុំឈ្មោះអ្វី", "ចាំឈ្មោះខ្ញុំទេ", "what is my name", "do you remember my name"];
   if (recallQuestions.some((question) => clean.includes(normalize(question)))) {
     return state.memory.name
       ? `អ្នកឈ្មោះ ${state.memory.name}។`
       : "ខ្ញុំមិនទាន់ស្គាល់ឈ្មោះអ្នកទេ។ សរសេរ៖ ខ្ញុំឈ្មោះ [ឈ្មោះរបស់អ្នក]";
+  }
+  if (["ខ្ញុំអាយុប៉ុន្មាន", "what is my age", "how old am i"].some((question) => clean.includes(normalize(question)))) {
+    return state.memory.age ? `អ្នកអាយុ ${state.memory.age} ឆ្នាំ។` : "អ្នកមិនទាន់ប្រាប់អាយុឱ្យខ្ញុំចងចាំទេ។";
+  }
+  if (["ខ្ញុំរស់នៅណា", "where do i live"].some((question) => clean.includes(normalize(question)))) {
+    return state.memory.location ? `អ្នករស់នៅ ${state.memory.location}។` : "អ្នកមិនទាន់ប្រាប់ទីកន្លែងរស់នៅឱ្យខ្ញុំចងចាំទេ។";
+  }
+  if (["ខ្ញុំចូលចិត្តអ្វី", "what do i like"].some((question) => clean.includes(normalize(question)))) {
+    return state.memory.like ? `អ្នកចូលចិត្ត ${state.memory.like}។` : "អ្នកមិនទាន់ប្រាប់អ្វីដែលអ្នកចូលចិត្តទេ។";
+  }
+  const profileQuestions = ["តើអ្នកចងចាំអ្វីអំពីខ្ញុំ", "ប្រាប់អ្វីដែលអ្នកចងចាំពីខ្ញុំ", "what do you remember about me"];
+  if (profileQuestions.some((question) => clean.includes(normalize(question)))) {
+    const facts = [];
+    if (state.memory.name) facts.push(`ឈ្មោះ ${state.memory.name}`);
+    if (state.memory.age) facts.push(`អាយុ ${state.memory.age} ឆ្នាំ`);
+    if (state.memory.location) facts.push(`រស់នៅ ${state.memory.location}`);
+    if (state.memory.like) facts.push(`ចូលចិត្ត ${state.memory.like}`);
+    if (state.memory.dislike) facts.push(`មិនចូលចិត្ត ${state.memory.dislike}`);
+    return facts.length ? `ខ្ញុំចងចាំថាអ្នក៖ ${facts.join(" · ")}។` : "ខ្ញុំមិនទាន់មានព័ត៌មានអំពីអ្នកសម្រាប់ចងចាំទេ។";
   }
   return null;
 }
@@ -205,7 +224,7 @@ function teach(message) {
   if (question.trim().length < 2 || answer.length < 2) return "សំណួរ និងចម្លើយត្រូវមានយ៉ាងតិច 2 តួអក្សរ។";
 
   state.learned.push({ patterns: [question.trim().slice(0, 500)], responses: [answer.slice(0, 2000)] });
-  state.learned = state.learned.slice(-100);
+  state.learned = state.learned.slice(-1000);
   writeStorage(STORAGE.learned, state.learned);
   state.entries = [...state.entries.filter((entry) => !entry.__learned), ...state.learned.map((entry) => ({ ...entry, __learned: true }))];
   buildIndex();
@@ -329,7 +348,7 @@ function addMessage(role, text) {
     timestamp: Date.now(),
   };
   state.history.push(item);
-  state.history = state.history.slice(-80);
+  state.history = state.history.slice(-300);
   writeStorage(STORAGE.history, state.history);
   renderMessage(item);
   return item;
@@ -374,8 +393,7 @@ async function initialize() {
   } catch {
     // The embedded starter knowledge keeps the page usable offline.
   }
-  const shared = await loadSharedKnowledge();
-  state.entries = [...builtIn, ...shared, ...state.learned.map((entry) => ({ ...entry, __learned: true }))];
+  state.entries = [...builtIn, ...state.learned.map((entry) => ({ ...entry, __learned: true }))];
   buildIndex();
 
   if (!Array.isArray(state.history) || !state.history.length) {
@@ -410,45 +428,6 @@ elements.clear.addEventListener("click", () => {
   writeStorage(STORAGE.history, state.history);
   elements.messages.replaceChildren();
   addMessage("assistant", "បានលុបប្រវត្តិសន្ទនាហើយ។ តើយើងចាប់ផ្តើមនិយាយអំពីអ្វី?");
-});
-
-elements.openAdmin.addEventListener("click", () => {
-  elements.adminStatus.textContent = "";
-  elements.adminDialog.showModal();
-  elements.adminPassword.focus();
-});
-
-elements.closeAdmin.addEventListener("click", () => elements.adminDialog.close());
-elements.adminDialog.addEventListener("click", (event) => {
-  if (event.target === elements.adminDialog) elements.adminDialog.close();
-});
-
-elements.adminForm.addEventListener("submit", async (event) => {
-  event.preventDefault();
-  const password = elements.adminPassword.value;
-  const patterns = elements.adminPatterns.value
-    .split("\n")
-    .map((value) => value.trim())
-    .filter(Boolean);
-  const answer = elements.adminAnswer.value.trim();
-  if (!password || !patterns.length || !answer) return;
-
-  elements.adminSave.disabled = true;
-  elements.adminStatus.classList.remove("success");
-  elements.adminStatus.textContent = "កំពុងរក្សាទុក...";
-  try {
-    const entry = await saveSharedKnowledge(password, patterns, answer);
-    state.entries.push(entry);
-    buildIndex();
-    elements.adminPatterns.value = "";
-    elements.adminAnswer.value = "";
-    elements.adminStatus.classList.add("success");
-    elements.adminStatus.textContent = "រក្សាទុករួចរាល់ ✅ អ្នកប្រើគ្រប់គ្នាអាចទទួលចម្លើយនេះបាន។";
-  } catch (error) {
-    elements.adminStatus.textContent = error.message;
-  } finally {
-    elements.adminSave.disabled = false;
-  }
 });
 
 initialize();
