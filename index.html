@@ -23,14 +23,11 @@
             <p><span class="status-dot"></span> ដំណើរការរួចរាល់</p>
           </div>
         </div>
-        <div class="topbar-actions">
-          <button class="admin-button" id="open-admin" type="button">Admin</button>
-          <button class="icon-button" id="clear-chat" type="button" aria-label="លុបប្រវត្តិសន្ទនា" title="លុបប្រវត្តិសន្ទនា">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M4 7h16M9 7V4h6v3m-8 0 1 13h8l1-13M10 11v5m4-5v5" />
-            </svg>
-          </button>
-        </div>
+        <button class="icon-button" id="clear-chat" type="button" aria-label="លុបប្រវត្តិសន្ទនា" title="លុបប្រវត្តិសន្ទនា">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 7h16M9 7V4h6v3m-8 0 1 13h8l1-13M10 11v5m4-5v5" />
+          </svg>
+        </button>
       </header>
 
       <section class="intro" aria-labelledby="intro-title">
@@ -74,31 +71,6 @@
         <span>ទិន្នន័យរក្សាទុកក្នុងឧបករណ៍នេះ</span>
       </footer>
     </main>
-
-    <dialog class="admin-dialog" id="admin-dialog">
-      <form class="admin-card" id="admin-form">
-        <div class="admin-heading">
-          <div>
-            <span class="eyebrow">ADMIN ONLY</span>
-            <h2>បង្រៀន AI សម្រាប់អ្នកប្រើគ្រប់គ្នា</h2>
-          </div>
-          <button class="dialog-close" id="close-admin" type="button" aria-label="បិទ">×</button>
-        </div>
-
-        <label for="admin-password">លេខសម្ងាត់ Admin</label>
-        <input id="admin-password" name="password" type="password" autocomplete="current-password" required />
-
-        <label for="admin-patterns">សំណួរ (មួយបន្ទាត់មួយ)</label>
-        <textarea id="admin-patterns" name="patterns" rows="5" maxlength="3000" placeholder="អ្នកឈ្មោះអ្វី?&#10;តើអ្នកជាអ្នកណា?&#10;Who are you?" required></textarea>
-
-        <label for="admin-answer">ចម្លើយ</label>
-        <textarea id="admin-answer" name="answer" rows="4" maxlength="2000" placeholder="ខ្ញុំឈ្មោះ AI Chat Bot។" required></textarea>
-
-        <p class="admin-status" id="admin-status" role="status"></p>
-        <button class="admin-save" id="admin-save" type="submit">រក្សាទុកក្នុង Cloudflare</button>
-        <p class="admin-note">User ធម្មតាអាចជជែកបាន ប៉ុន្តែមិនអាចកែចំណេះដឹងរួមដោយគ្មានលេខសម្ងាត់ Admin ទេ។</p>
-      </form>
-    </dialog>
 
     <template id="message-template">
       <article class="message">
