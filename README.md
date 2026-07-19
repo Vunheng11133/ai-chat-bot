@@ -12,12 +12,11 @@ AI chat website សម្រាប់ភាសាខ្មែរ និងអង
 
 - សន្ទនាជាភាសាខ្មែរ និងអង់គ្លេស
 - ផ្គូផ្គងសំណួរដោយ character n-gram TF-IDF ដែលសរសេរដោយ JavaScript សុទ្ធ
-- ចងចាំឈ្មោះ និងប្រវត្តិសន្ទនាក្នុង browser (`localStorage`)
+- ចងចាំឈ្មោះ អាយុ ទីកន្លែង ចំណូលចិត្ត និងប្រវត្តិសន្ទនាក្នុង browser (`localStorage`)
 - បង្រៀនចម្លើយថ្មីជាមួយ `/teach សំណួរ | ចម្លើយ`
 - រចនាសម្រាប់ទូរស័ព្ទ និងកុំព្យូទ័រ
 - មិនមាន API key ឬ dependency ខាងក្រៅ
-- បែងចែក User និង Admin: User ជជែកបាន ហើយ Admin អាចបន្ថែមចំណេះដឹងរួម
-- គាំទ្រ Cloudflare Pages Functions + D1 សម្រាប់ការចងចាំគ្រប់ឧបករណ៍
+- មានចំណេះដឹង 96 ក្រុម និងសំណួរគំរូជាង 230 ទម្រង់ក្នុង `knowledge.json`
 
 ## បើក GitHub Pages
 
@@ -39,7 +38,6 @@ python3 -m http.server 8000
 
 AI នេះជា retrieval-based AI ខ្នាតតូច មិនមែន LLM ដូច ChatGPT ទេ។ ចំណេះដឹងដែលបង្រៀនថ្មីរក្សាទុកតែក្នុង browser/ឧបករណ៍នោះ ហើយមិនបញ្ជូនទៅ server ទេ។
 
-សម្រាប់ផ្ទាំង Admin និងការចងចាំរួម សូមអនុវត្តតាម [CLOUDFLARE_SETUP.md](CLOUDFLARE_SETUP.md)។ លេខសម្ងាត់ Admin ត្រូវរក្សាជា Cloudflare secret `ADMIN_PASSWORD` និងមិនត្រូវបញ្ចូលក្នុង GitHub។
 
 ## License
 
