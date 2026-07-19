@@ -3,13 +3,12 @@
 const STORAGE = {
   history: "ai-chat-web-history-v1",
   memory: "ai-chat-web-memory-v1",
-  learned: "ai-chat-web-learned-v1",
 };
 
 const FALLBACK_RESPONSES = [
-  "ខ្ញុំមិនទាន់ចេះឆ្លើយសំណួរនេះទេ។ អ្នកអាចបង្រៀនខ្ញុំដោយប្រើ /teach សំណួរ | ចម្លើយ",
-  "សូមសរសេរសំណួរបែបផ្សេង ឬបង្រៀនខ្ញុំដោយ /teach សំណួរ | ចម្លើយ។",
-  "I do not know that yet. Teach me with /teach question | answer",
+  "ខ្ញុំមិនទាន់មានចម្លើយសម្រាប់សំណួរនេះទេ។ សូមសរសេរសំណួរបែបផ្សេង។",
+  "សូមសាកប្រើពាក្យខ្លី និងច្បាស់ជាងនេះ ដើម្បីឱ្យខ្ញុំយល់បានល្អ។",
+  "I do not know that yet. Please try asking in a different way.",
 ];
 
 const DEFAULT_KNOWLEDGE = [
@@ -38,7 +37,6 @@ const state = {
   documents: [],
   idf: new Map(),
   memory: readStorage(STORAGE.memory, {}),
-  learned: readStorage(STORAGE.learned, []),
   history: readStorage(STORAGE.history, []),
   busy: false,
 };
@@ -215,22 +213,6 @@ function rememberOrRecallName(message) {
   return null;
 }
 
-function teach(message) {
-  if (!message.toLocaleLowerCase().startsWith("/teach")) return null;
-  const lesson = message.slice(6).trim();
-  if (!lesson.includes("|")) return "របៀបប្រើ៖ /teach សំណួរ | ចម្លើយ";
-  const [question, ...answerParts] = lesson.split("|");
-  const answer = answerParts.join("|").trim();
-  if (question.trim().length < 2 || answer.length < 2) return "សំណួរ និងចម្លើយត្រូវមានយ៉ាងតិច 2 តួអក្សរ។";
-
-  state.learned.push({ patterns: [question.trim().slice(0, 500)], responses: [answer.slice(0, 2000)] });
-  state.learned = state.learned.slice(-1000);
-  writeStorage(STORAGE.learned, state.learned);
-  state.entries = [...state.entries.filter((entry) => !entry.__learned), ...state.learned.map((entry) => ({ ...entry, __learned: true }))];
-  buildIndex();
-  return "ខ្ញុំបានរៀនចម្លើយថ្មី ហើយរក្សាទុកក្នុង browser នេះហើយ ✅";
-}
-
 function calculate(message) {
   const khmerDigits = "០១២៣៤៥៦៧៨៩";
   const normalized = String(message)
@@ -298,8 +280,6 @@ function calculate(message) {
 }
 
 function respond(message) {
-  const lessonResponse = teach(message);
-  if (lessonResponse) return lessonResponse;
   const calculationResponse = calculate(message);
   if (calculationResponse) return calculationResponse;
   const memoryResponse = rememberOrRecallName(message);
@@ -393,7 +373,7 @@ async function initialize() {
   } catch {
     // The embedded starter knowledge keeps the page usable offline.
   }
-  state.entries = [...builtIn, ...state.learned.map((entry) => ({ ...entry, __learned: true }))];
+  state.entries = builtIn;
   buildIndex();
 
   if (!Array.isArray(state.history) || !state.history.length) {
