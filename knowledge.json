@@ -1,46 +1,697 @@
 [
   {
-    "patterns": ["សួស្តី", "ជំរាបសួរ", "hello", "hi", "hey"],
+    "category": "greeting",
+    "patterns": ["សួស្តី", "ជំរាបសួរ", "hello", "hi", "hey", "good morning"],
     "responses": ["សួស្តី {name}! តើខ្ញុំអាចជួយអ្វីបាន?", "ជំរាបសួរ! រីករាយដែលបានជួបអ្នក។"]
   },
   {
-    "patterns": ["អ្នកឈ្មោះអ្វី", "តើអ្នកជាអ្នកណា", "who are you", "what is your name"],
-    "responses": ["ខ្ញុំឈ្មោះ AI Chat Bot។ ខ្ញុំជា AI ខ្នាតតូចដែលដំណើរការនៅលើម៉ាស៊ីនរបស់ម្ចាស់ bot។"]
-  },
-  {
-    "patterns": ["អ្នកអាចធ្វើអ្វីបាន", "ជួយអ្វីបានខ្លះ", "what can you do", "help me"],
-    "responses": ["ខ្ញុំអាចជជែក ឆ្លើយតាមចំណេះដឹងដែលមាន ចងចាំឈ្មោះអ្នក និងរៀនចម្លើយថ្មីតាម /teach សំណួរ | ចម្លើយ។"]
-  },
-  {
+    "category": "greeting",
     "patterns": ["សុខសប្បាយទេ", "តើអ្នកសុខសប្បាយទេ", "how are you", "how are you doing"],
-    "responses": ["ខ្ញុំសុខសប្បាយ អរគុណ! ចុះអ្នកវិញ?", "ខ្ញុំដំណើរការល្អណាស់ 😊"]
+    "responses": ["ខ្ញុំដំណើរការល្អ អរគុណ! ចុះអ្នកវិញ?", "ខ្ញុំសុខសប្បាយណាស់ 😊"]
   },
   {
-    "patterns": ["អរគុណ", "សូមអរគុណ", "thank you", "thanks"],
+    "category": "greeting",
+    "patterns": ["អរគុណ", "សូមអរគុណ", "thank you", "thanks", "thank you very much"],
     "responses": ["មិនអីទេ!", "រីករាយដែលបានជួយ 😊", "You're welcome!"]
   },
   {
+    "category": "greeting",
+    "patterns": ["សុំទោស", "ខ្ញុំសុំទោស", "sorry", "i am sorry"],
+    "responses": ["មិនអីទេ។ យើងអាចបន្តបាន 😊", "គ្មានបញ្ហាទេ។"]
+  },
+  {
+    "category": "greeting",
     "patterns": ["លាហើយ", "ជួបគ្នាពេលក្រោយ", "bye", "goodbye", "see you"],
     "responses": ["លាហើយ! ជួបគ្នាពេលក្រោយ 👋", "សូមឱ្យមានថ្ងៃល្អ!"]
   },
   {
-    "patterns": ["ម៉ោងប៉ុន្មាន", "ពេលនេះម៉ោងប៉ុន្មាន", "what time is it", "current time"],
-    "responses": ["ពេលនេះម៉ោង {time} តាមតំបន់ពេលវេលារបស់ម៉ាស៊ីន bot។"]
+    "category": "conversation",
+    "patterns": ["ខ្ញុំសប្បាយចិត្ត", "ថ្ងៃនេះខ្ញុំសប្បាយ", "i am happy", "i feel great"],
+    "responses": ["ខ្ញុំរីករាយដែលបានឮបែបនេះ 😊 តើមានអ្វីល្អកើតឡើង?"]
   },
   {
-    "patterns": ["ថ្ងៃនេះថ្ងៃអ្វី", "កាលបរិច្ឆេទថ្ងៃនេះ", "what is the date", "today's date"],
-    "responses": ["កាលបរិច្ឆេទរបស់ម៉ាស៊ីន bot គឺ {date}។"]
+    "category": "conversation",
+    "patterns": ["ខ្ញុំពិបាកចិត្ត", "ខ្ញុំមិនសប្បាយចិត្ត", "i am sad", "i feel down"],
+    "responses": ["ខ្ញុំនៅទីនេះស្តាប់អ្នក។ អ្នកអាចប្រាប់ខ្ញុំអំពីអ្វីដែលកំពុងធ្វើឱ្យពិបាកចិត្តបាន។"]
   },
   {
+    "category": "conversation",
+    "patterns": ["ខ្ញុំធុញ", "ធុញណាស់", "i am bored", "i'm bored"],
+    "responses": ["យើងអាចនិយាយអំពីបច្ចេកវិទ្យា វិទ្យាសាស្ត្រ កម្ពុជា ឬអ្នកអាចឱ្យខ្ញុំសាកគណនាលេខមួយ។"]
+  },
+  {
+    "category": "conversation",
+    "patterns": ["តើអ្នកចូលចិត្តខ្ញុំទេ", "អ្នកជាមិត្តខ្ញុំទេ", "are you my friend"],
+    "responses": ["ខ្ញុំជាជំនួយការ AI របស់អ្នក ហើយខ្ញុំរីករាយក្នុងការជជែក និងជួយអ្នក។"]
+  },
+  {
+    "category": "identity",
+    "patterns": ["អ្នកឈ្មោះអ្វី", "តើអ្នកជាអ្នកណា", "who are you", "what is your name"],
+    "responses": ["ខ្ញុំឈ្មោះ AI Chat Bot។ ខ្ញុំជា AI ខ្នាតតូចដែលដំណើរការផ្ទាល់នៅក្នុង browser។"]
+  },
+  {
+    "category": "identity",
+    "patterns": ["អ្នកត្រូវបានបង្កើតដោយអ្នកណា", "អ្នកណាបង្កើតអ្នក", "who created you", "who made you"],
+    "responses": ["ខ្ញុំត្រូវបានបង្កើតសម្រាប់ repository ai-chat-bot របស់ Vunheng11133។"]
+  },
+  {
+    "category": "identity",
+    "patterns": ["អ្នកអាចធ្វើអ្វីបាន", "ជួយអ្វីបានខ្លះ", "what can you do", "help me"],
+    "responses": ["ខ្ញុំអាចជជែកខ្មែរ/អង់គ្លេស ឆ្លើយចំណេះដឹងទូទៅ គណនាលេខ និងចងចាំព័ត៌មានសំខាន់ៗរបស់អ្នកក្នុង browser នេះ។"]
+  },
+  {
+    "category": "identity",
     "patterns": ["អ្នកនិយាយខ្មែរបានទេ", "ចេះភាសាខ្មែរទេ", "do you speak khmer"],
     "responses": ["បាន ខ្ញុំអាចសន្ទនាជាភាសាខ្មែរ និងអង់គ្លេស។"]
   },
   {
-    "patterns": ["អ្នកត្រូវបានបង្កើតដោយអ្នកណា", "who created you", "who made you"],
-    "responses": ["ខ្ញុំត្រូវបានបង្កើតសម្រាប់ repository ai-chat-bot របស់ Vunheng11133។"]
+    "category": "identity",
+    "patterns": ["តើអ្នកប្រើ api ទេ", "do you use ai api", "are you chatgpt", "អ្នកជា chatgpt មែនទេ"],
+    "responses": ["ខ្ញុំមិនហៅ OpenAI, Gemini ឬ AI API ខាងក្រៅទេ។ ខ្ញុំប្រើម៉ាស៊ីនផ្គូផ្គងអត្ថបទក្នុង JavaScript។"]
   },
   {
-    "patterns": ["តើអ្នកប្រើ api ទេ", "do you use ai api", "are you chatgpt"],
-    "responses": ["ខ្ញុំមិនហៅ OpenAI, Gemini ឬ AI API ខាងក្រៅទេ។ ខ្ញុំប្រើម៉ាស៊ីនផ្គូផ្គងអត្ថបទនៅក្នុងកូដនេះ ហើយប្រើ Telegram Bot API សម្រាប់ផ្ញើនិងទទួលសារ។"]
+    "category": "identity",
+    "patterns": ["អ្នកមានអ៊ីនធឺណិតទេ", "អ្នកអាចស្វែងរកអ៊ីនធឺណិតទេ", "can you browse the internet"],
+    "responses": ["ខ្ញុំមិនអាចស្វែងរកអ៊ីនធឺណិតផ្ទាល់បានទេ។ ខ្ញុំឆ្លើយតាមចំណេះដឹងដែលមានក្នុងកូដ។"]
+  },
+  {
+    "category": "identity",
+    "patterns": ["អ្នកចេះគ្រប់យ៉ាងទេ", "do you know everything", "អ្នកអាចឆ្លើយគ្រប់សំណួរទេ"],
+    "responses": ["ខ្ញុំមិនចេះគ្រប់យ៉ាងទេ។ បើមិនដឹង ខ្ញុំនឹងស្នើឱ្យអ្នកសួរបែបផ្សេង។"]
+  },
+  {
+    "category": "identity",
+    "patterns": ["ចម្លើយអ្នកត្រឹមត្រូវទេ", "can i trust your answer", "តើខ្ញុំគួរជឿអ្នកទេ"],
+    "responses": ["ខ្ញុំខិតខំឆ្លើយឱ្យត្រឹមត្រូវ ប៉ុន្តែអាចមានកំហុស។ សម្រាប់រឿងសំខាន់ សូមផ្ទៀងផ្ទាត់ជាមួយប្រភពដែលអាចទុកចិត្តបាន។"]
+  },
+  {
+    "category": "memory",
+    "patterns": ["តើអ្នកចងចាំខ្ញុំទេ", "តើអ្នកចងចាំអ្វីខ្លះ", "do you remember me"],
+    "responses": ["ខ្ញុំអាចចងចាំឈ្មោះ អាយុ ទីកន្លែង ចំណូលចិត្ត និងប្រវត្តិសន្ទនាក្នុង browser នេះ។"]
+  },
+  {
+    "category": "memory",
+    "patterns": ["ទិន្នន័យខ្ញុំរក្សាទុកនៅណា", "where is my data stored", "privacy"],
+    "responses": ["ប្រវត្តិសន្ទនា និងព័ត៌មានដែលអ្នកប្រាប់ឱ្យខ្ញុំចងចាំ ត្រូវបានរក្សាទុកក្នុង browser របស់អ្នក។ កុំបញ្ចូលព័ត៌មានសម្ងាត់។"]
+  },
+  {
+    "category": "time",
+    "patterns": ["ម៉ោងប៉ុន្មាន", "ពេលនេះម៉ោងប៉ុន្មាន", "what time is it", "current time"],
+    "responses": ["ពេលនេះម៉ោង {time} តាមតំបន់ពេលវេលារបស់ឧបករណ៍អ្នក។"]
+  },
+  {
+    "category": "time",
+    "patterns": ["ថ្ងៃនេះថ្ងៃអ្វី", "កាលបរិច្ឆេទថ្ងៃនេះ", "what is the date", "today's date"],
+    "responses": ["កាលបរិច្ឆេទនៅលើឧបករណ៍អ្នកគឺ {date}។"]
+  },
+  {
+    "category": "time",
+    "patterns": ["មួយសប្តាហ៍មានប៉ុន្មានថ្ងៃ", "how many days in a week"],
+    "responses": ["មួយសប្តាហ៍មាន 7 ថ្ងៃ។"]
+  },
+  {
+    "category": "time",
+    "patterns": ["មួយឆ្នាំមានប៉ុន្មានខែ", "how many months in a year"],
+    "responses": ["មួយឆ្នាំមាន 12 ខែ។ ឆ្នាំធម្មតាមាន 365 ថ្ងៃ ហើយឆ្នាំបង្គ្រប់មាន 366 ថ្ងៃ។"]
+  },
+  {
+    "category": "cambodia",
+    "patterns": ["រាជធានីកម្ពុជាគឺអ្វី", "រាជធានីប្រទេសកម្ពុជា", "capital of cambodia"],
+    "responses": ["រាជធានីនៃប្រទេសកម្ពុជាគឺភ្នំពេញ។"]
+  },
+  {
+    "category": "cambodia",
+    "patterns": ["ភាសាផ្លូវការកម្ពុជាគឺអ្វី", "official language of cambodia"],
+    "responses": ["ភាសាផ្លូវការរបស់កម្ពុជាគឺភាសាខ្មែរ។"]
+  },
+  {
+    "category": "cambodia",
+    "patterns": ["រូបិយប័ណ្ណកម្ពុជាគឺអ្វី", "លុយខ្មែរ", "currency of cambodia"],
+    "responses": ["រូបិយប័ណ្ណផ្លូវការរបស់កម្ពុជាគឺរៀល ដែលមានកូដ KHR។"]
+  },
+  {
+    "category": "cambodia",
+    "patterns": ["កម្ពុជាស្ថិតនៅទីណា", "where is cambodia located"],
+    "responses": ["កម្ពុជាស្ថិតនៅអាស៊ីអាគ្នេយ៍ និងមានព្រំដែនជាប់ថៃ ឡាវ និងវៀតណាម។"]
+  },
+  {
+    "category": "cambodia",
+    "patterns": ["កម្ពុជាមានខេត្តប៉ុន្មាន", "how many provinces in cambodia"],
+    "responses": ["កម្ពុជាមាន 24 ខេត្ត និងរាជធានីភ្នំពេញមួយ។"]
+  },
+  {
+    "category": "cambodia",
+    "patterns": ["ទង់ជាតិកម្ពុជាមានពណ៌អ្វី", "cambodia flag colors"],
+    "responses": ["ទង់ជាតិកម្ពុជាមានពណ៌ខៀវ ក្រហម និងស ហើយមានរូបប្រាសាទអង្គរវត្តនៅកណ្ដាល។"]
+  },
+  {
+    "category": "cambodia",
+    "patterns": ["អង្គរវត្តនៅឯណា", "where is angkor wat"],
+    "responses": ["ប្រាសាទអង្គរវត្តស្ថិតនៅខេត្តសៀមរាប ប្រទេសកម្ពុជា។"]
+  },
+  {
+    "category": "cambodia",
+    "patterns": ["អ្នកណាសាងសង់អង្គរវត្ត", "who built angkor wat"],
+    "responses": ["អង្គរវត្តត្រូវបានសាងសង់នៅដើមសតវត្សទី 12 ក្នុងរជ្ជកាលព្រះបាទសូរ្យវរ្ម័នទី 2។"]
+  },
+  {
+    "category": "cambodia",
+    "patterns": ["កម្ពុជាទទួលឯករាជ្យថ្ងៃណា", "cambodia independence day"],
+    "responses": ["កម្ពុជាទទួលឯករាជ្យពីបារាំងនៅថ្ងៃទី 9 ខែវិច្ឆិកា ឆ្នាំ 1953។"]
+  },
+  {
+    "category": "cambodia",
+    "patterns": ["បុណ្យចូលឆ្នាំខ្មែរនៅខែណា", "when is khmer new year"],
+    "responses": ["បុណ្យចូលឆ្នាំខ្មែរជាទូទៅប្រារព្ធនៅពាក់កណ្ដាលខែមេសា។"]
+  },
+  {
+    "category": "cambodia",
+    "patterns": ["ទន្លេសាបជាអ្វី", "what is tonle sap"],
+    "responses": ["ទន្លេសាបជាប្រព័ន្ធបឹង និងទន្លេសំខាន់របស់កម្ពុជា ដែលមានតួនាទីធំសម្រាប់ជលផល និងជីវភាពប្រជាជន។"]
+  },
+  {
+    "category": "cambodia",
+    "patterns": ["លេខកូដប្រទេសកម្ពុជាប៉ុន្មាន", "cambodia phone code"],
+    "responses": ["លេខកូដទូរស័ព្ទអន្តរជាតិរបស់កម្ពុជាគឺ +855។"]
+  },
+  {
+    "category": "cambodia",
+    "patterns": ["ដូមែនកម្ពុជាជាអ្វី", "cambodia internet domain"],
+    "responses": ["ដូមែនកម្រិតកំពូលរបស់កម្ពុជាគឺ .kh។"]
+  },
+  {
+    "category": "geography",
+    "patterns": ["ផែនដីមានទ្វីបប៉ុន្មាន", "how many continents are there"],
+    "responses": ["តាមការបែងចែកដែលប្រើទូទៅ ផែនដីមាន 7 ទ្វីប។"]
+  },
+  {
+    "category": "geography",
+    "patterns": ["មហាសមុទ្រធំបំផុត", "largest ocean"],
+    "responses": ["មហាសមុទ្រប៉ាស៊ីហ្វិកគឺជាមហាសមុទ្រធំបំផុតលើផែនដី។"]
+  },
+  {
+    "category": "geography",
+    "patterns": ["ភ្នំខ្ពស់បំផុតក្នុងពិភពលោក", "highest mountain in the world"],
+    "responses": ["ភ្នំអេវឺរ៉េសគឺជាកំពូលភ្នំខ្ពស់បំផុតលើនីវ៉ូសមុទ្រ។"]
+  },
+  {
+    "category": "geography",
+    "patterns": ["ប្រទេសធំបំផុតតាមផ្ទៃដី", "largest country by area"],
+    "responses": ["រុស្ស៊ីជាប្រទេសធំបំផុតតាមផ្ទៃដី។"]
+  },
+  {
+    "category": "science",
+    "patterns": ["តើ ai ជាអ្វី", "អ្វីទៅជាបញ្ញាសិប្បនិម្មិត", "what is ai"],
+    "responses": ["AI ឬបញ្ញាសិប្បនិម្មិត គឺបច្ចេកវិទ្យាដែលឱ្យកម្មវិធីអាចវិភាគទិន្នន័យ ស្វែងរកលំនាំ និងអនុវត្តភារកិច្ចដែលត្រូវការបញ្ញា។"]
+  },
+  {
+    "category": "science",
+    "patterns": ["ប្រព័ន្ធព្រះអាទិត្យមានភពប៉ុន្មាន", "how many planets in the solar system"],
+    "responses": ["ប្រព័ន្ធព្រះអាទិត្យមានភព 8។"]
+  },
+  {
+    "category": "science",
+    "patterns": ["ព្រះអាទិត្យជាអ្វី", "what is the sun"],
+    "responses": ["ព្រះអាទិត្យជាផ្កាយមួយនៅកណ្ដាលប្រព័ន្ធព្រះអាទិត្យ។"]
+  },
+  {
+    "category": "science",
+    "patterns": ["ផែនដីវិលជុំវិញអ្វី", "what does earth orbit"],
+    "responses": ["ផែនដីវិលជុំវិញព្រះអាទិត្យ ហើយវិលជុំវិញអ័ក្សរបស់ខ្លួន។"]
+  },
+  {
+    "category": "science",
+    "patterns": ["ទឹកមានរូបមន្តអ្វី", "chemical formula of water", "what is h2o"],
+    "responses": ["រូបមន្តគីមីរបស់ទឹកគឺ H₂O ដែលមានអាតូមអ៊ីដ្រូសែន 2 និងអុកស៊ីសែន 1។"]
+  },
+  {
+    "category": "science",
+    "patterns": ["ទឹកកកនៅសីតុណ្ហភាពប៉ុន្មាន", "freezing point of water"],
+    "responses": ["នៅសម្ពាធបរិយាកាសធម្មតា ទឹកសុទ្ធកកប្រហែល 0°C។"]
+  },
+  {
+    "category": "science",
+    "patterns": ["ទឹកពុះនៅសីតុណ្ហភាពប៉ុន្មាន", "boiling point of water"],
+    "responses": ["នៅនីវ៉ូសមុទ្រ ទឹកសុទ្ធពុះប្រហែល 100°C។ កម្ពស់ និងសម្ពាធអាចធ្វើឱ្យតម្លៃនេះប្រែប្រួល។"]
+  },
+  {
+    "category": "science",
+    "patterns": ["រុក្ខជាតិបង្កើតអាហារយ៉ាងមិច", "what is photosynthesis"],
+    "responses": ["រស្មីសំយោគគឺដំណើរការដែលរុក្ខជាតិប្រើពន្លឺ ទឹក និងកាបូនឌីអុកស៊ីត ដើម្បីបង្កើតស្ករ និងបញ្ចេញអុកស៊ីសែន។"]
+  },
+  {
+    "category": "science",
+    "patterns": ["ហេតុអ្វីមេឃពណ៌ខៀវ", "why is the sky blue"],
+    "responses": ["មេឃមើលទៅខៀវ ព្រោះបរិយាកាសបំបែកពន្លឺខៀវពីពន្លឺព្រះអាទិត្យខ្លាំងជាងពណ៌ដែលមានរលកវែង។"]
+  },
+  {
+    "category": "science",
+    "patterns": ["មនុស្សមានបេះដូងប៉ុន្មាន", "how many hearts do humans have"],
+    "responses": ["មនុស្សធម្មតាមានបេះដូងមួយ ដែលបូមឈាមទៅទូទាំងរាងកាយ។"]
+  },
+  {
+    "category": "science",
+    "patterns": ["អុកស៊ីសែនមានសារៈសំខាន់យ៉ាងមិច", "why do humans need oxygen"],
+    "responses": ["កោសិការាងកាយប្រើអុកស៊ីសែនក្នុងការបង្កើតថាមពលពីសារធាតុចិញ្ចឹម។"]
+  },
+  {
+    "category": "science",
+    "patterns": ["សំឡេងអាចឆ្លងកាត់អវកាសទេ", "can sound travel in space"],
+    "responses": ["សំឡេងត្រូវការមធ្យមដូចជាខ្យល់ ទឹក ឬវត្ថុរឹង ដូច្នេះវាមិនអាចឆ្លងកាត់សុញ្ញាកាសបានទេ។"]
+  },
+  {
+    "category": "technology",
+    "patterns": ["html ជាអ្វី", "what is html"],
+    "responses": ["HTML ជាភាសាសម្គាល់ដែលកំណត់រចនាសម្ព័ន្ធ និងមាតិកានៃទំព័រវេបសាយ។"]
+  },
+  {
+    "category": "technology",
+    "patterns": ["css ជាអ្វី", "what is css"],
+    "responses": ["CSS ប្រើសម្រាប់រចនា layout ពណ៌ អក្សរ និងរូបរាងរបស់វេបសាយ។"]
+  },
+  {
+    "category": "technology",
+    "patterns": ["javascript ជាអ្វី", "what is javascript"],
+    "responses": ["JavaScript ជាភាសាកម្មវិធីដែលធ្វើឱ្យវេបសាយមានអន្តរកម្ម និងអាចដំណើរការតក្កវិជ្ជាក្នុង browser។"]
+  },
+  {
+    "category": "technology",
+    "patterns": ["json ជាអ្វី", "what is json"],
+    "responses": ["JSON ជាទម្រង់អត្ថបទសម្រាប់រក្សា និងផ្ទេរទិន្នន័យជាគូ key/value និងបញ្ជី។"]
+  },
+  {
+    "category": "technology",
+    "patterns": ["github ជាអ្វី", "what is github"],
+    "responses": ["GitHub ជាវេទិកាសម្រាប់រក្សាទុកកូដជាមួយ Git សហការលើគម្រោង និងតាមដានការកែប្រែ។"]
+  },
+  {
+    "category": "technology",
+    "patterns": ["git ជាអ្វី", "what is git"],
+    "responses": ["Git ជាប្រព័ន្ធគ្រប់គ្រងកំណែកូដ ដែលអនុញ្ញាតឱ្យរក្សាប្រវត្តិ បង្កើត branch និងសហការលើគម្រោង។"]
+  },
+  {
+    "category": "technology",
+    "patterns": ["cloudflare pages ជាអ្វី", "what is cloudflare pages"],
+    "responses": ["Cloudflare Pages ជាសេវា deploy វេបសាយពី Git និងចែកចាយតាមបណ្ដាញ CDN របស់ Cloudflare។"]
+  },
+  {
+    "category": "technology",
+    "patterns": ["hosting ជាអ្វី", "what is web hosting"],
+    "responses": ["Web hosting គឺសេវាដែលរក្សាឯកសារ ឬកម្មវិធីវេបសាយលើម៉ាស៊ីនដែលអាចចូលប្រើតាមអ៊ីនធឺណិត។"]
+  },
+  {
+    "category": "technology",
+    "patterns": ["domain ជាអ្វី", "what is a domain name"],
+    "responses": ["Domain គឺឈ្មោះអាសយដ្ឋានដែលមនុស្សប្រើចូលវេបសាយ ដូចជា example.com។"]
+  },
+  {
+    "category": "technology",
+    "patterns": ["browser ជាអ្វី", "what is a web browser"],
+    "responses": ["Browser ជាកម្មវិធីសម្រាប់បើក និងប្រើវេបសាយ ដូចជា Safari, Chrome និង Firefox។"]
+  },
+  {
+    "category": "technology",
+    "patterns": ["api ជាអ្វី", "what is an api"],
+    "responses": ["API ជាចំណុចប្រទាក់ដែលអនុញ្ញាតឱ្យកម្មវិធីផ្សេងៗស្នើសុំ និងផ្លាស់ប្តូរទិន្នន័យគ្នា។"]
+  },
+  {
+    "category": "technology",
+    "patterns": ["database ជាអ្វី", "what is a database"],
+    "responses": ["Database ជាប្រព័ន្ធរក្សា រៀបចំ និងស្វែងរកទិន្នន័យបានមានប្រសិទ្ធភាព។"]
+  },
+  {
+    "category": "technology",
+    "patterns": ["frontend ជាអ្វី", "what is frontend"],
+    "responses": ["Frontend គឺផ្នែកនៃកម្មវិធីដែលអ្នកប្រើមើលឃើញ និងធ្វើអន្តរកម្មក្នុង browser ឬ app។"]
+  },
+  {
+    "category": "technology",
+    "patterns": ["backend ជាអ្វី", "what is backend"],
+    "responses": ["Backend គឺផ្នែកដំណើរការនៅ server ដូចជា API ការផ្ទៀងផ្ទាត់ និងការភ្ជាប់ database។"]
+  },
+  {
+    "category": "technology",
+    "patterns": ["https ជាអ្វី", "what is https"],
+    "responses": ["HTTPS ជាវិធីទំនាក់ទំនងវេបដែលអ៊ិនគ្រីបទិន្នន័យរវាង browser និង server។"]
+  },
+  {
+    "category": "technology",
+    "patterns": ["password ល្អគួរធ្វើយ៉ាងមិច", "how to make a strong password"],
+    "responses": ["ប្រើលេខសម្ងាត់វែង និងមិនដូចគ្នាសម្រាប់គណនីនីមួយៗ។ Password manager និង 2FA អាចបង្កើនសុវត្ថិភាព។ កុំផ្ញើលេខសម្ងាត់ឱ្យអ្នកដទៃ។"]
+  },
+  {
+    "category": "technology",
+    "patterns": ["2fa ជាអ្វី", "two factor authentication"],
+    "responses": ["2FA ជាការផ្ទៀងផ្ទាត់ពីរជំហាន ដែលបន្ថែមកូដ ឬឧបករណ៍មួយក្រៅពីលេខសម្ងាត់។"]
+  },
+  {
+    "category": "technology",
+    "patterns": ["phishing ជាអ្វី", "what is phishing"],
+    "responses": ["Phishing គឺការបោកបញ្ឆោតឱ្យអ្នកបញ្ចូលលេខសម្ងាត់ ឬព័ត៌មានសម្ងាត់តាមសារ ឬវេបសាយក្លែងក្លាយ។ ពិនិត្យអាសយដ្ឋានមុនចុច។"]
+  },
+  {
+    "category": "technology",
+    "patterns": ["cloud ជាអ្វី", "what is cloud computing"],
+    "responses": ["Cloud computing គឺការប្រើ server, storage, database ឬកម្មវិធីតាមអ៊ីនធឺណិតជំនួសការរត់ទាំងអស់លើឧបករណ៍ខ្លួនឯង។"]
+  },
+  {
+    "category": "math",
+    "patterns": ["បូកជាអ្វី", "what is addition"],
+    "responses": ["ការបូកគឺការបញ្ចូលបរិមាណចូលគ្នា។ អ្នកអាចសរសេរ 12+8 ហើយខ្ញុំនឹងគណនា។"]
+  },
+  {
+    "category": "math",
+    "patterns": ["ដកជាអ្វី", "what is subtraction"],
+    "responses": ["ការដកគឺការយកបរិមាណមួយចេញពីបរិមាណមួយទៀត។ ឧទាហរណ៍ 10−3 = 7។"]
+  },
+  {
+    "category": "math",
+    "patterns": ["គុណជាអ្វី", "what is multiplication"],
+    "responses": ["ការគុណអាចគិតថាជាការបូកដដែលៗ។ ឧទាហរណ៍ 4×3 = 12។"]
+  },
+  {
+    "category": "math",
+    "patterns": ["ចែកជាអ្វី", "what is division"],
+    "responses": ["ការចែកគឺការបែងចែកបរិមាណជាក្រុមស្មើៗគ្នា។ មិនអាចចែកនឹងសូន្យបានទេ។"]
+  },
+  {
+    "category": "math",
+    "patterns": ["ភាគរយជាអ្វី", "what is percentage"],
+    "responses": ["ភាគរយមានន័យថាចំនួនក្នុងមួយរយ។ ឧទាហរណ៍ 25% ស្មើ 25 ក្នុង 100 ឬ 0.25។"]
+  },
+  {
+    "category": "education",
+    "patterns": ["របៀបរៀនឲ្យចាំ", "how to study effectively", "ចង់រៀនឲ្យពូកែ"],
+    "responses": ["បែងមេរៀនជាផ្នែកតូចៗ សាករំលឹកដោយមិនមើលសៀវភៅ អនុវត្តជាប្រចាំ និងពិនិត្យកំហុស។"]
+  },
+  {
+    "category": "education",
+    "patterns": ["របៀបរៀនភាសាអង់គ្លេស", "how to learn english"],
+    "responses": ["ហាត់ស្តាប់ និយាយ អាន និងសរសេររាល់ថ្ងៃ។ រៀនពាក្យក្នុងប្រយោគ ហើយប្រើវាជាញឹកញាប់។"]
+  },
+  {
+    "category": "education",
+    "patterns": ["របៀបគ្រប់គ្រងពេលវេលា", "how to manage time"],
+    "responses": ["សរសេរភារកិច្ចសំខាន់ 3 មុខ កំណត់ពេលធ្វើមួយៗ ផ្តោតលើមួយម្តង និងទុកពេលសម្រាក។"]
+  },
+  {
+    "category": "education",
+    "patterns": ["របៀបសរសេរកូដឲ្យពូកែ", "how to get better at coding"],
+    "responses": ["ចាប់ផ្តើមពីគម្រោងតូច អាន error ឱ្យយល់ សាកជួសជុលដោយខ្លួនឯង និងរក្សាកូដក្នុង Git ដើម្បីមើលការរីកចម្រើន។"]
+  },
+  {
+    "category": "education",
+    "patterns": ["ភាសាកូដណាល្អសម្រាប់អ្នកចាប់ផ្តើម", "best programming language for beginners"],
+    "responses": ["JavaScript ល្អសម្រាប់វេបសាយ ហើយ Python ងាយអានសម្រាប់រៀនគំនិតកម្មវិធីទូទៅ។ ជ្រើសតាមគម្រោងដែលអ្នកចង់បង្កើត។"]
+  },
+  {
+    "category": "health",
+    "patterns": ["តើគួរគេងប៉ុន្មានម៉ោង", "how much sleep do i need"],
+    "responses": ["តម្រូវការគេងប្រែប្រួលតាមអាយុ និងមនុស្ស។ មនុស្សពេញវ័យជាច្រើនត្រូវការប្រហែល 7–9 ម៉ោង ប៉ុន្តែសូមពិគ្រោះអ្នកជំនាញបើមានបញ្ហាគេង។"]
+  },
+  {
+    "category": "health",
+    "patterns": ["ខ្ញុំមានជំងឺធ្វើមិច", "ខ្ញុំឈឺ", "i feel sick"],
+    "responses": ["ខ្ញុំមិនអាចធ្វើរោគវិនិច្ឆ័យបានទេ។ បើរោគសញ្ញាធ្ងន់ ឬបន្ទាន់ សូមស្វែងរកជំនួយវេជ្ជសាស្ត្រភ្លាមៗ។"]
+  },
+  {
+    "category": "health",
+    "patterns": ["របៀបបន្ថយស្ត្រេស", "how to reduce stress"],
+    "responses": ["សាកដកដង្ហើមយឺតៗ ដើរលំហែ សម្រាកពីអេក្រង់ និងនិយាយជាមួយមនុស្សដែលអ្នកទុកចិត្ត។ បើស្ត្រេសបន្តយូរ សូមពិគ្រោះអ្នកជំនាញ។"]
+  },
+  {
+    "category": "language",
+    "patterns": ["hello ប្រែថាមិច", "hello meaning in khmer"],
+    "responses": ["Hello ប្រែថា «សួស្តី» ឬ «ជំរាបសួរ»។"]
+  },
+  {
+    "category": "language",
+    "patterns": ["thank you ប្រែថាមិច", "thank you meaning in khmer"],
+    "responses": ["Thank you ប្រែថា «អរគុណ» ឬ «សូមអរគុណ»។"]
+  },
+  {
+    "category": "language",
+    "patterns": ["សួស្តីជាអង់គ្លេស", "how to say សួស្តី in english"],
+    "responses": ["«សួស្តី» ជាភាសាអង់គ្លេសគឺ “Hello” ឬ “Hi”។"]
+  },
+  {
+    "category": "language",
+    "patterns": ["អរគុណជាអង់គ្លេស", "how to say អរគុណ in english"],
+    "responses": ["«អរគុណ» ជាភាសាអង់គ្លេសគឺ “Thank you”។"]
+  },
+  {
+    "category": "language",
+    "patterns": ["good morning ប្រែថាមិច", "អរុណសួស្តីជាអង់គ្លេស"],
+    "responses": ["Good morning ប្រែថា «អរុណសួស្តី»។"]
+  },
+  {
+    "category": "safety",
+    "patterns": ["ផ្ញើលេខសម្ងាត់ឲអ្នកបានទេ", "can i send you my password"],
+    "responses": ["កុំផ្ញើលេខសម្ងាត់ API token OTP ឬព័ត៌មានធនាគារមកខ្ញុំ ឬបង្ហោះវាក្នុង GitHub។"]
+  },
+  {
+    "category": "safety",
+    "patterns": ["token telegram ដាក់នៅណា", "where to store secret token"],
+    "responses": ["Secret token គួររក្សាក្នុង Environment Variables ឬ Secrets របស់ hosting មិនត្រូវសរសេរផ្ទាល់ក្នុង repository សាធារណៈទេ។"]
+  },
+  {
+    "category": "website",
+    "patterns": ["វេបសាយនេះនៅលើ hosting អ្វី", "where is this website hosted"],
+    "responses": ["AI Chat Bot នេះត្រូវបាន deploy ពី GitHub ទៅ Cloudflare Pages។"]
+  },
+  {
+    "category": "website",
+    "patterns": ["វេបសាយនេះ free ទេ", "is this website free"],
+    "responses": ["គម្រោងនេះអាចដំណើរការលើ free plan របស់ GitHub និង Cloudflare Pages តាមលក្ខខណ្ឌ និងកម្រិតរបស់សេវា។"]
+  },
+  {
+    "category": "website",
+    "patterns": ["អាចប្រើបាន 24 ម៉ោងទេ", "is this available 24/7"],
+    "responses": ["វេបសាយអាចចូលប្រើបានគ្រប់ពេល ខណៈដែល Cloudflare Pages ដំណើរការ។ វាមិនត្រូវការបើកទូរស័ព្ទទុកទេ។"]
+  },
+  {
+    "category": "website",
+    "patterns": ["របៀបអាប់ដេតវេបសាយ", "how to update this website"],
+    "responses": ["កែឯកសារនៅ branch ដែល Cloudflare ភ្ជាប់ ហើយ commit ទៅ GitHub។ Cloudflare នឹង deploy កំណែថ្មីស្វ័យប្រវត្តិ។"]
+  },
+  {
+    "category": "features",
+    "patterns": ["fast mode ជាអ្វី", "model fast ធ្វើអ្វី", "លេខ 1 fast"],
+    "responses": ["1 Fast ជ្រើសចម្លើយដែលផ្គូផ្គងលឿនបំផុតពីចំណេះដឹងក្នុងកូដ។ វាសមសម្រាប់ការសន្ទនា និងសំណួរទូទៅ។"]
+  },
+  {
+    "category": "features",
+    "patterns": ["thinking mode ជាអ្វី", "model thinking ធ្វើអ្វី", "លេខ 2 thinking"],
+    "responses": ["2 Thinking ពិនិត្យលទ្ធផលផ្គូផ្គងជាច្រើនមុនជ្រើសចម្លើយ។ វាប្រុងប្រយ័ត្នជាង Fast ប៉ុន្តែវានៅតែជា local retrieval mode មិនមែន LLM ដែលគិតដូចមនុស្សទេ។"]
+  },
+  {
+    "category": "features",
+    "patterns": ["pro mode ជាអ្វី", "model pro ធ្វើអ្វី", "លេខ 3 pro"],
+    "responses": ["3 Pro បើកគណិតកម្រិតបន្ថែមដូចជា sqrt, power (^), factorial (!), gcd, lcm និងចំណេះដឹងកូដ។"]
+  },
+  {
+    "category": "features",
+    "patterns": ["តើគួរជ្រើស model មួយណា", "fast thinking pro ខុសគ្នាមិច", "which mode should i use"],
+    "responses": ["ជ្រើស Fast សម្រាប់ចម្លើយរហ័ស, Thinking សម្រាប់សំណួរដែលចង់ឲ្យពិនិត្យការផ្គូផ្គងច្រើន, និង Pro សម្រាប់គណិតឬកូដ។"]
+  },
+  {
+    "category": "features",
+    "patterns": ["របៀបបង្កើតសន្ទនាថ្មី", "new chat នៅណា", "how to start a new chat"],
+    "responses": ["ចុចប៊ូតុងម៉ឺនុយខាងឆ្វេង រួចចុច «សន្ទនាថ្មី»។ ប្រវត្តិសន្ទនាចាស់នៅតែមានក្នុងផ្នែកថ្មីៗ។"]
+  },
+  {
+    "category": "features",
+    "patterns": ["recents ជាអ្វី", "ប្រវត្តិសន្ទនានៅណា", "where is chat history"],
+    "responses": ["Recents ឬ «ថ្មីៗ» ជាបញ្ជីសន្ទនាតាមពេលវេលា។ វារក្សាទុកក្នុង browser សម្រាប់ profile ដែលកំពុងប្រើ។"]
+  },
+  {
+    "category": "features",
+    "patterns": ["របៀប pin chat", "ខ្ទាស់សន្ទនាធ្វើមិច", "how to pin a chat"],
+    "responses": ["បើកម៉ឺនុយសន្ទនា ហើយចុចសញ្ញាខ្ទាស់នៅជាប់ឈ្មោះសន្ទនា។ សន្ទនានោះនឹងឡើងទៅផ្នែក «បានខ្ទាស់»។"]
+  },
+  {
+    "category": "features",
+    "patterns": ["local profile ជាអ្វី", "បង្កើត profile ធ្វើមិច", "what is a local profile"],
+    "responses": ["Local profile បែងចែក memory និងប្រវត្តិសន្ទនាក្នុង browser នេះ។ វាមិនមែនជាគណនីអនឡាញ និងគ្មាន password ទេ។"]
+  },
+  {
+    "category": "features",
+    "patterns": ["google login ប្រើបានទេ", "apple login ប្រើបានទេ", "can i sign in with google"],
+    "responses": ["Google និង Apple login ត្រូវការ OAuth credentials, callback URL និង database សុវត្ថិភាពពីម្ចាស់វេបសាយ។ កំណែនេះបង្ហាញជម្រើស ប៉ុន្តែមិនទាន់ភ្ជាប់ការចូលគណនីពិតទេ។"]
+  },
+  {
+    "category": "features",
+    "patterns": ["ទិន្នន័យខ្ញុំរក្សាទុកនៅណា", "where is my data stored", "ប្រវត្តិខ្ញុំបាត់ទេ"],
+    "responses": ["ប្រវត្តិ profile និង memory ត្រូវបានរក្សាទុកក្នុង localStorage របស់ browser នេះ។ បើលុប site data ប្តូរ browser ឬប្តូរឧបករណ៍ ទិន្នន័យមិនផ្ទេរតាមទេ។"]
+  },
+  {
+    "category": "conversation",
+    "patterns": ["បាទ", "ចាស", "យល់ហើយ", "ok understood"],
+    "responses": ["ល្អណាស់! បើមានចំណុចណាចង់សួរបន្ថែម សូមសួរបាន។", "បានហើយ។ ខ្ញុំត្រៀមជួយបន្ត។"]
+  },
+  {
+    "category": "conversation",
+    "patterns": ["អត់ទេ", "មិនមែនទេ", "no that's not it"],
+    "responses": ["បាន។ សូមប្រាប់ថាចំណុចណាមិនត្រូវ ឬសរសេរអ្វីដែលអ្នកចង់បានឲ្យច្បាស់បន្តិច។"]
+  },
+  {
+    "category": "conversation",
+    "patterns": ["ខ្ញុំមិនយល់", "មិនយល់ទេ", "i don't understand"],
+    "responses": ["មិនអីទេ។ សូមប្រាប់ពាក្យ ឬជំហានដែលមិនយល់ ខ្ញុំនឹងពន្យល់ជាភាសាសាមញ្ញ។"]
+  },
+  {
+    "category": "conversation",
+    "patterns": ["ពន្យល់សាមញ្ញ", "និយាយឲងាយយល់", "explain simply"],
+    "responses": ["បាន។ ខ្ញុំនឹងប្រើពាក្យខ្លីៗ បំបែកជាជំហាន និងបន្ថែមឧទាហរណ៍។ សូមផ្ញើប្រធានបទដែលចង់ឲ្យពន្យល់។"]
+  },
+  {
+    "category": "conversation",
+    "patterns": ["សូមឧទាហរណ៍", "ឲឧទាហរណ៍មួយ", "give me an example"],
+    "responses": ["បាន។ សូមបញ្ជាក់ប្រធានបទ ខ្ញុំនឹងបង្ហាញឧទាហរណ៍តូចមួយដែលអាចសាកល្បងបាន។"]
+  },
+  {
+    "category": "conversation",
+    "patterns": ["បន្តទៀត", "សូមបន្ត", "continue"],
+    "responses": ["បាន។ សូមបញ្ជាក់ចំណុចចុងក្រោយដែលអ្នកចង់ឲ្យខ្ញុំបន្ត ព្រោះខ្ញុំឆ្លើយតាមចំណេះដឹង និងសារនៅក្នុងសន្ទនានេះ។"]
+  },
+  {
+    "category": "conversation",
+    "patterns": ["សង្ខេបឲខ្ញុំ", "សូមសង្ខេប", "summarize it"],
+    "responses": ["បាន។ ផ្ញើអត្ថបទ ឬបញ្ជាក់ប្រធានបទ ហើយខ្ញុំនឹងសង្ខេបជាចំណុចខ្លីៗតាមសមត្ថភាពចំណេះដឹងដែលមាន។"]
+  },
+  {
+    "category": "conversation",
+    "patterns": ["ពន្យល់លម្អិត", "ចង់បានលម្អិត", "explain in detail"],
+    "responses": ["បាន។ សូមផ្ញើប្រធានបទ ហើយជ្រើស Thinking សម្រាប់ការផ្គូផ្គងប្រុងប្រយ័ត្ន ឬ Pro សម្រាប់គណិតនិងកូដ។"]
+  },
+  {
+    "category": "conversation",
+    "patterns": ["អ្នកឆ្លើយខុស", "ចម្លើយមិនត្រឹមត្រូវ", "that answer is wrong"],
+    "responses": ["សូមអភ័យទោស។ ខ្ញុំជា retrieval-based bot ដូច្នេះអាចផ្គូផ្គងខុសបាន។ សូមផ្តល់ចម្លើយត្រឹមត្រូវ ឬសរសេរសំណួរឲ្យច្បាស់ជាងមុន។"]
+  },
+  {
+    "category": "ai",
+    "patterns": ["retrieval ai ជាអ្វី", "retrieval based bot មានន័យអ្វី", "what is retrieval ai"],
+    "responses": ["Retrieval AI ស្វែងរកសំណួរគំរូដែលស្រដៀងបំផុតក្នុងឯកសារចំណេះដឹង ហើយយកចម្លើយដែលបានរៀបចំទុកមកឆ្លើយ។"]
+  },
+  {
+    "category": "ai",
+    "patterns": ["llm ជាអ្វី", "large language model ជាអ្វី", "what is an llm"],
+    "responses": ["LLM គឺម៉ូដែលភាសាធំដែលបានបណ្តុះលើទិន្នន័យច្រើន និងអាចបង្កើតអត្ថបទថ្មី។ Bot នេះមិនមែន LLM ទេ។"]
+  },
+  {
+    "category": "ai",
+    "patterns": ["dataset ជាអ្វី", "ទិន្នន័យបង្រៀន ai ជាអ្វី", "what is a dataset"],
+    "responses": ["Dataset គឺជាបណ្តុំទិន្នន័យដែលរៀបចំសម្រាប់សិក្សា សាកល្បង ឬស្វែងរក។ ក្នុងគម្រោងនេះ knowledge.json ជាបណ្តុំសំណួរ និងចម្លើយ។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["variable ជាអ្វី", "អថេរក្នុងកូដជាអ្វី", "what is a variable"],
+    "responses": ["Variable ជាឈ្មោះសម្រាប់រក្សាទុកតម្លៃក្នុងកម្មវិធី។ ឧទាហរណ៍ JavaScript៖ const name = 'Dara';"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["function ជាអ្វី", "មុខងារក្នុងកូដជាអ្វី", "what is a function"],
+    "responses": ["Function ជាក្រុមបញ្ជាដែលអាចហៅប្រើឡើងវិញ។ វាទទួល input ហើយអាចត្រឡប់ output។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["array ជាអ្វី", "បញ្ជីក្នុង javascript", "what is an array"],
+    "responses": ["Array ជាបញ្ជីតម្លៃតាមលំដាប់។ ឧទាហរណ៍៖ const colors = ['red', 'blue'];"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["object ជាអ្វី", "javascript object ជាអ្វី", "what is an object"],
+    "responses": ["Object រក្សាទុកទិន្នន័យជាគូ key និង value។ ឧទាហរណ៍៖ { name: 'Sokha', age: 20 }។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["if else ជាអ្វី", "condition ក្នុងកូដ", "what is if else"],
+    "responses": ["if/else ប្រើសម្រាប់សម្រេចថាកូដផ្នែកណាត្រូវដំណើរការ អាស្រ័យលើលក្ខខណ្ឌ true ឬ false។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["loop ជាអ្វី", "រង្វិលជុំកូដ", "what is a loop"],
+    "responses": ["Loop ធ្វើការងារដដែលៗច្រើនដង។ JavaScript មាន for, while និងវិធីដូចជា forEach។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["async await ជាអ្វី", "រង់ចាំ fetch ក្នុង javascript", "what is async await"],
+    "responses": ["async/await ជាវិធីសរសេរកូដ asynchronous ឲ្យងាយអាន។ await រង់ចាំ Promise នៅក្នុង async function។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["debug ជាអ្វី", "របៀបរក bug", "how to debug code"],
+    "responses": ["Debug គឺការរកមូលហេតុកំហុស។ អាន error, បង្រួមបញ្ហា, ពិនិត្យ input/output, ប្រើ console.log ហើយសាកម្ដងមួយចំណុច។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["html css javascript ខុសគ្នាមិច", "html css js ធ្វើអ្វី", "difference between html css javascript"],
+    "responses": ["HTML បង្កើតរចនាសម្ព័ន្ធ, CSS តុបតែងរូបរាង, JavaScript បន្ថែមអន្តរកម្ម និងតក្កវិជ្ជា។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["json ជាអ្វី", "knowledge json មានអ្វី", "what is json"],
+    "responses": ["JSON ជាទម្រង់អត្ថបទសម្រាប់ទិន្នន័យ។ វាប្រើ object, array, string, number, boolean និង null ហើយ key ត្រូវដាក់ក្នុងសញ្ញាសម្រង់ពីរ។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["api ជាអ្វី", "what is an api", "api ប្រើធ្វើអ្វី"],
+    "responses": ["API ជាច្រកឲ្យកម្មវិធីពីរទាក់ទងគ្នា។ Client ផ្ញើ request ហើយ server ត្រឡប់ response តាមកិច្ចព្រមព្រៀងដែលកំណត់។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["git commit ជាអ្វី", "commit មានន័យអ្វី", "what is a git commit"],
+    "responses": ["Git commit ជាកំណត់ត្រាការផ្លាស់ប្តូរកូដមួយកញ្ចប់ មានលេខសម្គាល់ និងសារពន្យល់។ វាអាចមើលបានក្នុងផ្នែក Commits របស់ GitHub។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["branch ជាអ្វី", "git branch មានន័យអ្វី", "what is a git branch"],
+    "responses": ["Branch ជាខ្សែការងារដាច់ពីគ្នាក្នុង Git។ អ្នកអាចអភិវឌ្ឍ feature នៅ branch មួយ ហើយបញ្ចូលទៅ main ពេលរួចរាល់។"]
+  },
+  {
+    "category": "programming",
+    "patterns": ["pull request ជាអ្វី", "pr github ជាអ្វី", "what is a pull request"],
+    "responses": ["Pull Request ជាសំណើសុំបញ្ចូលការផ្លាស់ប្តូរពី branch មួយទៅ branch មួយទៀត ដោយអាចពិនិត្យ diff និងពិភាក្សាមុន merge។"]
+  },
+  {
+    "category": "math",
+    "patterns": ["ឫសការ៉េជាអ្វី", "square root ជាអ្វី", "what is square root"],
+    "responses": ["ឫសការ៉េនៃ n គឺចំនួនដែលគុណនឹងខ្លួនឯងបាន n។ ឧទាហរណ៍ sqrt(144) = 12។ ជ្រើស Pro ដើម្បីគណនា។"]
+  },
+  {
+    "category": "math",
+    "patterns": ["ស្វ័យគុណជាអ្វី", "exponent ជាអ្វី", "what is exponent"],
+    "responses": ["a^b មានន័យថាយក a គុណនឹងខ្លួនឯង b ដង។ ឧទាហរណ៍ 2^5 = 32។"]
+  },
+  {
+    "category": "math",
+    "patterns": ["factorial ជាអ្វី", "សញ្ញា factorial", "what is factorial"],
+    "responses": ["n! គឺ n × (n−1) × ... × 1។ ឧទាហរណ៍ 5! = 120 ហើយ 0! = 1។"]
+  },
+  {
+    "category": "math",
+    "patterns": ["gcd ជាអ្វី", "តួចែករួមធំបំផុត", "what is gcd"],
+    "responses": ["GCD ជាតួចែករួមធំបំផុតរបស់ចំនួនគត់ពីរ។ ឧទាហរណ៍ gcd(18, 24) = 6។"]
+  },
+  {
+    "category": "math",
+    "patterns": ["lcm ជាអ្វី", "ពហុគុណរួមតូចបំផុត", "what is lcm"],
+    "responses": ["LCM ជាពហុគុណរួមវិជ្ជមានតូចបំផុត។ ឧទាហរណ៍ lcm(6, 8) = 24។"]
+  },
+  {
+    "category": "math",
+    "patterns": ["របៀបគណនាភាគរយ", "percentage គណនាមិច", "how to calculate percentage"],
+    "responses": ["x% នៃ y = (x ÷ 100) × y។ ក្នុង Pro អ្នកអាចសរសេរ 15% of 200 ហើយទទួលបាន 30។"]
+  },
+  {
+    "category": "math",
+    "patterns": ["លំដាប់ប្រមាណវិធី", "គុណចែកបូកដកមួយណាមុន", "order of operations"],
+    "responses": ["ប្រើវង់ក្រចកមុន បន្ទាប់មកស្វ័យគុណ បន្ទាប់មកគុណ/ចែក ហើយចុងក្រោយបូក/ដកពីឆ្វេងទៅស្តាំ។"]
+  },
+  {
+    "category": "math",
+    "patterns": ["មធ្យមភាគគណនាមិច", "average ជាអ្វី", "how to calculate average"],
+    "responses": ["មធ្យមភាគ = ផលបូកតម្លៃទាំងអស់ ÷ ចំនួនតម្លៃ។ ឧទាហរណ៍ (10 + 20 + 30) ÷ 3 = 20។"]
   }
 ]
