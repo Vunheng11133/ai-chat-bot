@@ -31,6 +31,15 @@ const elements = {
   suggestions: document.querySelector("#suggestions"),
   clear: document.querySelector("#clear-chat"),
   template: document.querySelector("#message-template"),
+  openAdmin: document.querySelector("#open-admin"),
+  closeAdmin: document.querySelector("#close-admin"),
+  adminDialog: document.querySelector("#admin-dialog"),
+  adminForm: document.querySelector("#admin-form"),
+  adminPassword: document.querySelector("#admin-password"),
+  adminPatterns: document.querySelector("#admin-patterns"),
+  adminAnswer: document.querySelector("#admin-answer"),
+  adminStatus: document.querySelector("#admin-status"),
+  adminSave: document.querySelector("#admin-save"),
 };
 
 const state = {
@@ -58,6 +67,31 @@ function writeStorage(key, value) {
   } catch {
     // Chat remains usable when private browsing blocks storage.
   }
+}
+
+async function loadSharedKnowledge() {
+  try {
+    const response = await fetch("/api/knowledge", { headers: { Accept: "application/json" } });
+    if (!response.ok) return [];
+    const data = await response.json();
+    return Array.isArray(data.entries) ? data.entries : [];
+  } catch {
+    return [];
+  }
+}
+
+async function saveSharedKnowledge(password, patterns, answer) {
+  const response = await fetch("/api/knowledge", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${password}`,
+    },
+    body: JSON.stringify({ patterns, responses: [answer] }),
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(data.error || "មិនអាចរក្សាទុកបានទេ។");
+  return data.entry;
 }
 
 function normalize(text) {
@@ -340,7 +374,8 @@ async function initialize() {
   } catch {
     // The embedded starter knowledge keeps the page usable offline.
   }
-  state.entries = [...builtIn, ...state.learned.map((entry) => ({ ...entry, __learned: true }))];
+  const shared = await loadSharedKnowledge();
+  state.entries = [...builtIn, ...shared, ...state.learned.map((entry) => ({ ...entry, __learned: true }))];
   buildIndex();
 
   if (!Array.isArray(state.history) || !state.history.length) {
@@ -375,6 +410,45 @@ elements.clear.addEventListener("click", () => {
   writeStorage(STORAGE.history, state.history);
   elements.messages.replaceChildren();
   addMessage("assistant", "បានលុបប្រវត្តិសន្ទនាហើយ។ តើយើងចាប់ផ្តើមនិយាយអំពីអ្វី?");
+});
+
+elements.openAdmin.addEventListener("click", () => {
+  elements.adminStatus.textContent = "";
+  elements.adminDialog.showModal();
+  elements.adminPassword.focus();
+});
+
+elements.closeAdmin.addEventListener("click", () => elements.adminDialog.close());
+elements.adminDialog.addEventListener("click", (event) => {
+  if (event.target === elements.adminDialog) elements.adminDialog.close();
+});
+
+elements.adminForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const password = elements.adminPassword.value;
+  const patterns = elements.adminPatterns.value
+    .split("\n")
+    .map((value) => value.trim())
+    .filter(Boolean);
+  const answer = elements.adminAnswer.value.trim();
+  if (!password || !patterns.length || !answer) return;
+
+  elements.adminSave.disabled = true;
+  elements.adminStatus.classList.remove("success");
+  elements.adminStatus.textContent = "កំពុងរក្សាទុក...";
+  try {
+    const entry = await saveSharedKnowledge(password, patterns, answer);
+    state.entries.push(entry);
+    buildIndex();
+    elements.adminPatterns.value = "";
+    elements.adminAnswer.value = "";
+    elements.adminStatus.classList.add("success");
+    elements.adminStatus.textContent = "រក្សាទុករួចរាល់ ✅ អ្នកប្រើគ្រប់គ្នាអាចទទួលចម្លើយនេះបាន។";
+  } catch (error) {
+    elements.adminStatus.textContent = error.message;
+  } finally {
+    elements.adminSave.disabled = false;
+  }
 });
 
 initialize();
