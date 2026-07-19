@@ -178,9 +178,77 @@ function teach(message) {
   return "ខ្ញុំបានរៀនចម្លើយថ្មី ហើយរក្សាទុកក្នុង browser នេះហើយ ✅";
 }
 
+function calculate(message) {
+  const khmerDigits = "០១២៣៤៥៦៧៨៩";
+  const normalized = String(message)
+    .replace(/[០-៩]/g, (digit) => String(khmerDigits.indexOf(digit)))
+    .replace(/[×xX]/g, "*")
+    .replace(/÷/g, "/")
+    .replace(/[−–—]/g, "-");
+
+  const candidates = normalized.match(/[\d\s()+\-*/%.]+/g) || [];
+  const expression = candidates
+    .map((candidate) => candidate.trim())
+    .filter((candidate) => /\d/.test(candidate) && /[+\-*/%]/.test(candidate))
+    .sort((left, right) => right.length - left.length)[0];
+  if (!expression || expression.length > 120) return null;
+
+  const compact = expression.replace(/\s+/g, "");
+  const tokens = compact.match(/\d+(?:\.\d+)?|[()+\-*/%]/g);
+  if (!tokens || tokens.join("") !== compact) return null;
+
+  let index = 0;
+  const parsePrimary = () => {
+    const token = tokens[index++];
+    if (token === "+") return parsePrimary();
+    if (token === "-") return -parsePrimary();
+    if (token === "(") {
+      const value = parseSum();
+      if (tokens[index++] !== ")") throw new Error("parenthesis");
+      return value;
+    }
+    const value = Number(token);
+    if (!Number.isFinite(value)) throw new Error("number");
+    return value;
+  };
+  const parseProduct = () => {
+    let value = parsePrimary();
+    while (["*", "/", "%"].includes(tokens[index])) {
+      const operator = tokens[index++];
+      const right = parsePrimary();
+      if ((operator === "/" || operator === "%") && right === 0) throw new Error("zero");
+      if (operator === "*") value *= right;
+      if (operator === "/") value /= right;
+      if (operator === "%") value %= right;
+    }
+    return value;
+  };
+  const parseSum = () => {
+    let value = parseProduct();
+    while (["+", "-"].includes(tokens[index])) {
+      const operator = tokens[index++];
+      const right = parseProduct();
+      value = operator === "+" ? value + right : value - right;
+    }
+    return value;
+  };
+
+  try {
+    const result = parseSum();
+    if (index !== tokens.length || !Number.isFinite(result)) return "មិនអាចគណនាកន្សោមនេះបានទេ។";
+    const rounded = Number.isInteger(result) ? result : Number(result.toPrecision(12));
+    const shownExpression = compact.replaceAll("*", "×").replaceAll("/", "÷");
+    return `${shownExpression} = ${rounded.toLocaleString("en-US", { maximumFractionDigits: 12 })}`;
+  } catch (error) {
+    return error.message === "zero" ? "មិនអាចចែកនឹងសូន្យបានទេ។" : "សូមពិនិត្យរូបមន្តគណនាម្តងទៀត។";
+  }
+}
+
 function respond(message) {
   const lessonResponse = teach(message);
   if (lessonResponse) return lessonResponse;
+  const calculationResponse = calculate(message);
+  if (calculationResponse) return calculationResponse;
   const memoryResponse = rememberOrRecallName(message);
   if (memoryResponse) return memoryResponse;
 
